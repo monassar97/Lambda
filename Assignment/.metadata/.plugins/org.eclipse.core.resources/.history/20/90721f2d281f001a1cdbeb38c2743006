@@ -1,0 +1,244 @@
+import java.util.Iterator;
+import java.util.Optional;
+import java.util.function.Function;
+
+import javax.print.attribute.IntegerSyntax;
+public class MyList <E>{
+	public static void main(String[] args) {
+		MyList<?> queue=new MyList();
+		queue.addFirst(1);
+		queue.addFirst(0);
+		queue.addLast(3);
+		queue.addFirst(6);
+		queue.addFirst(6);
+		queue.print();
+		System.out.println(queue.toString());
+		System.out.println("size = "+queue.size);
+		System.out.println(queue.toStringRevese());
+		queue.remove(1);
+		System.out.println(queue.toString());
+		System.out.println("get "+queue.get(1));
+		System.out.println("removed "+queue.removeByValue(6));
+		System.out.println(queue.toString());
+		System.out.println(queue.map(x->x));
+		System.out.println(queue.faltMap(x->queue));
+		
+	}
+	Node first;
+	Node last;
+	int size;
+	public MyList() {
+		this.first = null;
+		this.last = null;
+	}
+	public <U> MyList<Integer> map(Function<?super E,?extends U>mapper){
+		MyList<Integer> list=new MyList<Integer>();
+		
+		Iterator<Integer> it=iterate();
+		while(it.hasNext()) {
+			E data=(E) it.next();
+			U mappedData=mapper.apply(data);
+			list.addLast(mappedData);
+		}
+		return list;
+	}
+	public <U> MyList<Integer> faltMap(Function<?super E,MyList<? extends U>>mapper){
+		E list=(E) new MyList<Integer>();
+		Iterator<Integer> it=iterate();
+		while(it.hasNext()) {
+			E data=(E) it.next();
+			((MyList<?>) list).addLast(data);
+		}
+		list=(E) mapper.apply(list);
+		
+		return (MyList<Integer>) list;
+		
+	}
+	
+
+	public void print () {
+		Node current=first;
+		while(current!=null) {
+			System.out.println(current.value);
+			current=current.next;
+		}
+	}
+	public Optional<Integer> remove(int index){
+		Node current=first;
+		Node before=null;
+		Node removed=null;
+		for(int i=0;i<size;i++) {
+			if(index==i) {
+			before=current;
+			current=current.next;
+			removed=current;
+			}
+		}
+		before.next=current.next;
+		current.next.prev=before;
+		
+		if(removed==null) 
+			return Optional.empty();
+		
+		return Optional.of(removed.value);
+		
+		
+		
+	}
+	public Optional<Integer> removeByValue(int value){
+		Node cuNode=first;
+		for(int i=0;i<size;i++) {
+			if(cuNode.value==value) {
+				 remove(i);
+				 return Optional.of(cuNode.value);
+			}
+		}
+		return Optional.empty();
+	}
+	public void removeLast() {
+		Node current=first;
+		Node before=null;
+		for(int i=0;i<size-1;i++) {
+			before=current;
+			current=current.next;
+		}
+		last=before;
+		last.next=null;
+	}
+	
+	public Optional<Integer> get(int index) {
+		Node current=null;
+		if(index>0&&index<size) {
+		current=first;
+		for(int i=0;i<index;i++) {
+			current=current.next;
+		}
+		if(current==null)
+			return Optional.empty();
+		size--;
+		
+		return Optional.of(current.value);
+		}
+		return Optional.empty();
+	}
+	public void addFirst(int value) {
+		Node oldFirst=first;
+		Node newFirst=new Node(null, oldFirst, value);
+		first=newFirst;
+		if(oldFirst==null) {
+			last=newFirst;
+		}else {
+			oldFirst.prev=newFirst;
+		}
+		size++;
+	}
+	public <U> void addLast(U value) {
+	Node oldLast=this.last;
+	Node newNode=new Node(oldLast, null, value);
+	last=newNode;
+	if(oldLast==null) {
+		first=newNode;
+	}else {
+		oldLast.next=newNode;
+	}
+	size++;
+	}
+	public Iterator<Integer> iterate(){
+		return new LinkedIterator(first);
+	}
+	public Iterator<Integer> iterateRevese(){
+		return new ReveseIterator(last);
+	}
+	
+	@Override
+	public String toString() {
+		Iterator<Integer> iterate=iterate();
+		if(iterate.hasNext()==false) {
+			return "[]";
+		}
+		
+		StringBuffer buffer=new StringBuffer();
+		buffer.append("[");
+		while(iterate.hasNext()) {
+			int next=iterate.next();
+			buffer.append(next);
+			if(iterate.hasNext()) {
+				buffer.append(" ,");
+			}
+		}
+		buffer.append("]");
+		return buffer.toString();
+	}
+	
+	
+	public String toStringRevese() {
+		Iterator<Integer> iterate=iterateRevese();
+		if(iterate.hasNext()==false) {
+			return "[]";
+		}
+		
+		StringBuffer buffer=new StringBuffer();
+		buffer.append("[");
+		while(iterate.hasNext()) {
+			int next=iterate.next();
+			buffer.append(next);
+			if(iterate.hasNext()) {
+				buffer.append(" ,");
+			}
+		}
+		buffer.append("]");
+		return buffer.toString();
+	}
+
+	public class LinkedIterator implements Iterator<Integer>{
+		private Node current;
+		private Node lastAccessed;
+		
+		
+		public LinkedIterator(Node current) {
+			super();
+			this.current = current;
+		}
+
+		@Override
+		public boolean hasNext() {
+			if(current==null) {
+				return false;
+			}
+			return true;
+		}
+
+		@Override
+		public Integer next() {
+			lastAccessed=current;
+			current=current.next;
+			return lastAccessed.value;
+		}
+		
+	}
+	public class ReveseIterator implements Iterator<Integer>{
+		private Node current;
+		private Node lastAccessed;
+		
+		
+		public ReveseIterator(Node current) {
+			super();
+			this.current = current;
+		}
+
+		@Override
+		public boolean hasNext() {
+			if(current==null) {
+				return false;
+			}
+			return true;
+		}
+		
+		@Override
+		public Integer next() {
+			lastAccessed=current;
+			current=current.prev;
+			return lastAccessed.value;
+		}
+	}
+}

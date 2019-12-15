@@ -1,0 +1,5 @@
+public class UserCreate {
+	public void CreateUser(User user) {
+		
+	}
+}

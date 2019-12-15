@@ -1,0 +1,5 @@
+
+public interface ServiceExecute {
+	Service service=new 
+	public void execute();
+}

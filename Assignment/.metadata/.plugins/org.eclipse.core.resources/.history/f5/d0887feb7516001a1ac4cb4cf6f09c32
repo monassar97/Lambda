@@ -1,0 +1,4 @@
+public interface Validation {
+	check
+	public boolean LogIn(String userName,String password);
+}

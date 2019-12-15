@@ -1,0 +1,72 @@
+[
+  {
+  "name": "Tamra Saadeh",
+    "skills":{
+    "Interpersonal Skills ":"3",
+    "Responsiveness" :"3",
+    "Initiative" :"1"
+  }
+  }
+  ,{"name": "Mohammad Abu Ballan",
+    "skills":{
+    "Interpersonal Skills ":"3",
+    "Responsiveness" :"3",
+    "Initiative" :"3"
+  }
+  }
+  ,{"name": "Mahmoud Salam",
+    "skills":{
+    "Interpersonal Skills ":"3",
+    "Responsiveness" :"3",
+    "Initiative" :"1"
+  }}
+  ,{"name": "Ramiz Alkhawaldeh",
+    "skills":{
+    "Interpersonal Skills ":"3",
+    "Responsiveness" :"3",
+    "Initiative" :"1"
+  }}
+  ,{"name": "Ihab Malak",
+    "skills":{
+    "Interpersonal Skills ":"3",
+    "Responsiveness" :"3",
+    "Initiative" :"2"
+  }}
+  ,{"name": "Mohammad Qawasmeh",
+    "skills":{
+    "Interpersonal Skills ":" 2",
+    "Responsiveness" :"2",
+    "Initiative" :"1"
+  }}
+  ,{"name": "Saleh Shehab",
+    "skills":{
+    "Interpersonal Skills ":"3",
+    "Responsiveness" :"3",
+    "Initiative" :"3"
+  }}
+  ,{"name": "Salah Elddin Khalid",
+    "skills":{
+    "Interpersonal Skills ":"3",
+    "Responsiveness" :"3",
+    "Initiative" :"2"
+  }}
+  ,{"name": "Mohammad Kababji",
+    "skills":{
+    "Interpersonal Skills ":"3",
+    "Responsiveness" :"3",
+    "Initiative" :"1"
+  }}
+  ,{"name": "Yousef Al Najjar",
+    "skills":{
+    "Interpersonal Skills ":"3",
+    "Responsiveness" :"3",
+    "Initiative" :"3"
+  }}
+  ,{"name": "Lama Radwan",
+    "skills":{
+    "Interpersonal Skills ":"3",
+    "Responsiveness" :"3",
+    "Initiative" :"2"
+  }
+}
+] 

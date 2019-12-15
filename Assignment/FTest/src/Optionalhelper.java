@@ -1,0 +1,14 @@
+import java.util.Optional;
+public class Optionalhelper<E> {
+
+	public static <U,T> Optional<U> map(Optional<T> opt,MyFunction<?super T,?extends U> mapper){
+	   return opt.isPresent()?Optional.of(mapper.apply(opt.get())):Optional.empty();
+	}
+	
+	
+	public static <U,T> Optional<U> flatMap(Optional<T> opt,MyFunction<?super T,Optional<U>> mapper){
+		   Optional<U> of =(mapper.apply(opt.get()));
+		return opt.isPresent()?of:Optional.empty();
+		}
+	
+}

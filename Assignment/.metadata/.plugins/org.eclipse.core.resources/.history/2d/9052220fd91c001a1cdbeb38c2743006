@@ -1,0 +1,11 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class TestC {
+	Queue<Integer> queue=new LinkedList<Integer>();
+	
+	public static void main(String[] args) {
+		
+		
+	}
+}

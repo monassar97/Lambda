@@ -1,0 +1,7 @@
+import javax.annotation.Generated;
+
+@Getter
+public class Laptop {
+	private int id;
+	private String brand;
+}

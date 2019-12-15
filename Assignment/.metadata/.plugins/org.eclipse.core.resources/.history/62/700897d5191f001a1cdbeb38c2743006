@@ -1,0 +1,11 @@
+public class Pair<K,V>{
+		private K key;
+		private V value;
+		private Pair<K, V> next;
+		public Pair(K key, V value) {
+			super();
+			this.key = key;
+			this.value = value;
+		}
+		
+	}

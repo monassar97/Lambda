@@ -1,0 +1,16 @@
+public class Test {
+	public static void main(String[] args) {
+
+		MyFunction<Integer, MyFunction<Integer, MyFunction<Integer, Integer>>> test=x->y->z->(x+y+z);
+		System.out.println(test.apply(5).apply(6).apply(9));
+		MyPredicate<Integer> p=x->x%2==0?true:false;
+		System.out.println(p.predicate(2));
+		MyFunction<Integer, Integer> function=x->x+1;
+		MyFunction<Integer, Integer> function2=x->x*x;
+		MyFunction<Integer, Integer> a=function.compose(function2);
+		MyFunction<Integer, Integer> b=function2.compose(function);
+		System.out.println(a.apply(3));
+		System.out.println(b.apply(3));
+		
+	}
+}

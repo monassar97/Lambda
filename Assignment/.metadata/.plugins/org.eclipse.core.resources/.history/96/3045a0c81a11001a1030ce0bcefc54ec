@@ -1,0 +1,10 @@
+
+public class StudentCreate implements ServiceExecute{
+	RepoCUD repo1=new RepoCUD();
+	public void createStudent(String name) {
+		repo1.CreateStudent(name);
+	}
+	public void execute() {
+	}
+
+}

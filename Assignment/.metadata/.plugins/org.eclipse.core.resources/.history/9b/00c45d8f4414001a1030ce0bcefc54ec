@@ -1,0 +1,19 @@
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Set;
+
+public class Test {
+	public static void main(String[] args) {
+		List<String> list=new LinkedList<>();
+		list.add("asd1");
+		list.add("asd3");
+		list.add("asd2");
+		Collections.sort(list);
+		System.out.println(list.toString());
+	}
+}

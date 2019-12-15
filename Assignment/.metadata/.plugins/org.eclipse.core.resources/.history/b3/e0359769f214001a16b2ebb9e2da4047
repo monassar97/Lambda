@@ -1,0 +1,4 @@
+public interface CacheInterface {
+	public boolean getValueFromDS(int value) ;
+	public  void addValueToDS(int value);
+}

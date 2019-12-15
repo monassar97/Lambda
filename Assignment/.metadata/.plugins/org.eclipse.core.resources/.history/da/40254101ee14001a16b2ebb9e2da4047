@@ -1,0 +1,107 @@
+import java.util.Collection;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Cache {
+	static Cache cache=new Cache();
+	static List<DS>list=new LinkedList<DS>();
+	static Collection<DS> c=Collections.synchronizedCollection(list);
+	final static int capacity=4;
+	public synchronized boolean getValueFromDS(int value) {
+		for(DS val:c) {
+			if(value==val.getValue()) {
+			val.setPriorety();
+			return true;
+			}
+			
+		}
+		
+		return false;
+	}
+	public synchronized void addValueToDS(int value) {
+		if(c.size()>=capacity) {
+			c.remove(compareTime());
+			c.add(new DS(value));
+			System.out.println("value "+value+" added after deletion");
+		}
+		else {
+			c.add(new DS(value));
+			System.out.println("value "+value+" added ");
+		}
+		
+	}
+	//step 1
+	public int getMinPriorety() {
+		int min=list.get(0).getPriorety();
+		for(DS val:c) {
+			if(val.getPriorety()<min) {
+				min=val.getPriorety();
+			}
+		}
+		return min;
+	}//step 2
+	public List<DS> comparepriority(){
+		int min=getMinPriorety();
+		List<DS> newList=new LinkedList<DS>();
+		for(DS val:c) {
+			if(val.getPriorety()==min) {
+				newList.add(val);
+			}
+		}
+		
+		return newList;
+	}//step 3
+	public DS compareTime() {
+		List<DS> newList=comparepriority();
+		long min=getMinTime(comparepriority());
+		DS ds=null;
+		for(DS d:newList) {
+			if(d.getTime()==min) {
+				ds=d;
+			}
+		}
+		return ds;
+		
+	}
+	public long getMinTime(List<DS> list) {
+		long min=list.get(0).getTime();
+		for(DS val:c) {
+			if(val.getTime()<min) {
+				min=val.getTime();
+			}
+		}
+		return min;
+	}
+	public synchronized void print() {
+		for(DS val:c) {
+			System.out.println("value : "+val.getValue()+" Priorety : "+val.getPriorety()+" Time : "+val.getTime());
+		}
+	}
+	public synchronized static void call(int val) {
+		
+		Thread t=new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				cache.addValueToDS(val);
+			}
+		});t.start();
+		
+	}
+	public static void main(String[] args) throws InterruptedException {
+		call(1);
+		call(2);
+		call(3);
+		call(4);
+		//cache.addValueToDS(1);
+		//cache.addValueToDS(2);
+		//cache.addValueToDS(3);
+		//cache.addValueToDS(4);
+		cache.getValueFromDS(4);
+		call(5);
+		Thread.sleep(1000);
+		cache.print();
+		
+	}
+}

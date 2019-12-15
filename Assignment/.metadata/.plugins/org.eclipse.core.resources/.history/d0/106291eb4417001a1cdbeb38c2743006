@@ -1,0 +1,4 @@
+@FunctionalInterface
+public interface IntGeneral {
+	public IntGeneral add(IntGeneral x);
+}

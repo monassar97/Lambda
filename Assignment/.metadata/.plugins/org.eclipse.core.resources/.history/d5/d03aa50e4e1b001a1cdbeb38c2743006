@@ -1,0 +1,9 @@
+import java.util.Optional;
+public class Optionalhelper<E> {
+
+	public static <U,T> Optional<U> map(Optional<T> opt,MyFunction<?super T,?extends U> mapper){
+		U u=mapper.apply(opt.get());
+	   return opt.isPresent()?Optional.of(u):Optional.empty();
+	}
+	
+}

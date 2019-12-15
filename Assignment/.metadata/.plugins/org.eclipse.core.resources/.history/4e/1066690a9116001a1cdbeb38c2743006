@@ -1,0 +1,9 @@
+public class MainTest {
+	public static void main(String[] args) {
+		User user=new User(new ConnectionPool(new RepoImplementation()));
+		user.setId(1);
+		user.setUsername("ahmad");
+		user.setPassword("123");
+		user.getConnection().getConnection(user.getId());
+	}
+}

@@ -1,0 +1,10 @@
+package com.ArabBank.lombok.Cls;
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	
+        Laptop l=new Laptop();
+        
+    }
+}

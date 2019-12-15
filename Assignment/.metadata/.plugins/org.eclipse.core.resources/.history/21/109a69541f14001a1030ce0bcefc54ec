@@ -1,0 +1,21 @@
+public class ThreadRunner{
+	public static void main(String[] args) {
+Thread t1=new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				Test.print();
+			}
+		});
+		Thread t2=new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				Test.print();
+			}
+		});
+		t1.start();
+		t2.start();
+		
+	}
+}

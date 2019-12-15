@@ -1,0 +1,4 @@
+
+public interface StringFunction {
+	public void String (String str);
+}

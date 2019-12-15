@@ -1,0 +1,38 @@
+
+public class Account extends Thread{
+	private int balance;
+	public   void deposit(int value) {
+		balance+=value;
+		System.out.println(balance);
+	}
+	public  void draw(int value) {
+		if(balance-value<0)
+			System.out.println("Not Enough balance!");
+		else {
+			balance-=value;	
+		}
+		System.out.println(balance);
+	}
+	public static void main(String[] args) {
+		Thread t1=new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				Account a=new Account();
+				a.deposit(1000);
+
+			}
+		});
+Thread t2=new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				Account a=new Account();
+
+				a.draw(500);
+			}
+		});
+		
+	}
+	
+}

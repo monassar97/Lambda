@@ -1,0 +1,12 @@
+public class PrioretyGenerator {
+	int priorety;
+
+	public int getPriorety() {
+		return priorety;
+	}
+
+	public void setPriorety(int priorety) {
+		this.priorety = priorety;
+	}
+	
+}

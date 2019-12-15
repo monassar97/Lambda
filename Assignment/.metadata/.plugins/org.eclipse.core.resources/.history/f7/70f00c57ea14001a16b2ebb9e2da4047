@@ -1,0 +1,58 @@
+public class DS {
+	int value;
+	int priorety;
+	long time;
+
+	public long getTime() {
+		return time;
+	}
+	public void setTime() {
+		
+		this.time /=this.priorety;
+	}
+	public void setPriorety(int priorety) {
+		this.priorety = priorety;
+	}
+	public DS(int value) {
+		super();
+		this.value = value;
+		this.priorety=1;
+		this.time = (long) System.currentTimeMillis();
+	}
+	public int getPriorety() {
+		return priorety;
+	}
+	public void setPriorety() {
+		++this.priorety;
+	}
+	public int getValue() {
+		return value;
+	}
+	public void setValue(int value) {
+		this.value = value;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + priorety;
+		result = prime * result + value;
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		DS other = (DS) obj;
+		if (priorety != other.priorety)
+			return false;
+		if (value != other.value)
+			return false;
+		return true;
+	}
+
+}

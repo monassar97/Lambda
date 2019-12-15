@@ -1,0 +1,11 @@
+import java.util.LinkedList;
+import java.util.List;
+
+public class UserValidation implements Validation{
+	private List<User> users=new LinkedList<User>();
+
+	public boolean checkIfExist(String userName, String password) {
+		return false;
+	}
+	
+}

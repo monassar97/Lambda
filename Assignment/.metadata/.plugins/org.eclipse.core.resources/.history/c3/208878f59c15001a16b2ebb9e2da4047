@@ -1,0 +1,15 @@
+public class WriterThread extends Thread{
+	private MyList myList;
+
+	public WriterThread(MyList myList) {
+		super();
+		this.myList = myList;
+	}
+
+	@Override
+	public void run() {
+		
+		super.run();
+	}
+	
+}

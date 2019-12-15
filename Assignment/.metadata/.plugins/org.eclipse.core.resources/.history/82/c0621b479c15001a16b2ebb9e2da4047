@@ -1,0 +1,9 @@
+public class ReaderThread extends Thread{
+	private MyList myList;
+	@Override
+	public void run() {
+
+		super.run();
+	}
+	
+}

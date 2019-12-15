@@ -1,0 +1,11 @@
+public class Test {
+	public static void main(String[] args) {
+		//AddToString test=str->String.format("(%s)", str);
+		//System.out.println(test.add("hello"));
+		IntGeneral test=x->x;
+		MyFunction<Integer, Integer, Integer> function=(x,y)->(test.add(y)+test.add(x));
+		System.out.println(function.apply(2, 5));
+		//MyFunction<Integer, Integer, Integer> function2=(x,y)->x*function.apply(x, y);
+		//System.out.println(function2.apply(2, 3));
+	}
+}

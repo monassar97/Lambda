@@ -1,0 +1,31 @@
+import java.util.LinkedList;
+import java.util.List;
+
+public class ConnectionPool implements ConnectionPoolInterface{
+	
+	List<Integer> connections=new LinkedList<Integer>();
+	private RepoImplementation repo;
+	
+	public ConnectionPool(RepoImplementation repo) {
+		super();
+		this.repo = repo;
+	}
+
+	public Conn getConnection(final int id) {
+		Thread t=new Thread(new Runnable() {
+			public void run() {
+				connections.add(id);
+			}
+		});
+		t.start();
+	}
+	
+	public void releaseConnection(final int id) {
+		Thread t=new Thread(new Runnable() {
+			public void run() {
+				connections.remove(id);
+			}
+		});
+		t.start();
+	}
+}

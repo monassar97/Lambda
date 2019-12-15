@@ -1,0 +1,9 @@
+import java.util.ArrayList;
+
+public interface StudentsDAO {
+	public void CreateStudent(String name);
+	public void deleteStudent(Student student);
+	public void updateStudent(String newName);
+	public Student findStudentById(long id);
+	public  ArrayList<Student> findAllStudents();
+}

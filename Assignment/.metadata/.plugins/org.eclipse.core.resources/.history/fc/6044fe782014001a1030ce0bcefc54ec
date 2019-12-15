@@ -1,0 +1,11 @@
+
+public class Account {
+	private  int balance;
+	public static void draw(int value) {
+		balance=value;
+	}
+	public static void deposit(String value) {
+		
+	}
+	
+}

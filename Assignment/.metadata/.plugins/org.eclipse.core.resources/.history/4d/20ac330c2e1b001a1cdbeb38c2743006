@@ -1,0 +1,14 @@
+import java.util.Arrays;
+import java.util.List;
+
+public class TestGenerics2 {
+	public static void main(String[] args) {
+		List<Integer> integers=Arrays.asList(1,2,3,4,5);
+		List<Number> objects=integers;
+		
+	}
+	
+	public double sum(List<Number> numbers) {
+		return numbers.stream().mapToDouble(x->x.doubleValue()).sum();
+	}
+}

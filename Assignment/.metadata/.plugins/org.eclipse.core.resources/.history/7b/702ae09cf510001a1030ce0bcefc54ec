@@ -1,0 +1,58 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class StudentDAOImplementation implements StudentsDAO{
+	
+	Student student;
+	private Map<Long, String> map=new HashMap<Long, String>();
+	static long count=0;
+	
+	public void CreateStudent(String name) {
+		map.put(count,name);
+		student=new Student(count++,name);
+	}
+
+	public void deleteStudent(Student student) {
+		map.remove(student.getId());
+	}
+	public void deleteStudentById(long id) {
+		if(map.containsKey(id)) {
+		map.remove(student.getId());
+		}
+		else {
+			System.out.println("Student Does not Exist !");
+		}
+	}
+
+	public void updateStudent(long id,String newName) {
+		if(map.containsKey(id)) {
+			map.put(id, newName);
+		}
+		else 
+			System.out.println("Student Does not Exist !");
+	}
+
+	public Student findStudentById(long id) {
+		if(map.containsKey(id)) {
+			student=new Student();
+			student.setId(id);
+			student.setName(map.get(id));
+			return student;
+		}
+		return null;
+	}
+
+	public ArrayList<Student> findAllStudents() {
+		ArrayList<String> list = new ArrayList(map.keySet());
+		ArrayList<Student>studentList=new ArrayList();
+		for(int i=0;i<list.size();i++) {
+			student=new Student();
+			student.setId(Long.parseLong(list.get(i)));
+			student.setName(map.get(list.get(i)));
+			studentList.add(student);
+		}
+		return studentList;
+	}
+	
+}

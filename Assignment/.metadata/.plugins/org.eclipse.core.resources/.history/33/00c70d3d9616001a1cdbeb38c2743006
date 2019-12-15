@@ -1,0 +1,9 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class UserRepo {
+	Map<Integer, User> map=new HashMap<Integer, User>();
+	public void CreateUser(User user) {
+		
+	}
+}

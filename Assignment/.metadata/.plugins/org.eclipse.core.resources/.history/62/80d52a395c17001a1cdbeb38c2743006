@@ -1,0 +1,17 @@
+public class Test {
+	public static void main(String[] args) {
+
+		MyFunction<Integer, Integer> function=x->x+1;
+		MyFunction<Integer, Integer> function2=x->x*x;
+		MyFunction<Integer, Integer> a=function.compose(function2);
+		MyFunction<Integer, Integer> b=function2.compose(function);
+		System.out.println(a.apply(4));
+		System.out.println(b.apply(4));
+		//---------------------------------------------------------
+		MyFunction<String, Integer> function1=x->x.length();
+		MyFunction<Integer, Boolean> function2=x->(X%2==0)?true:false;
+		MyFunction<String, Integer> function3=x->x.length();
+		
+		
+	}
+}

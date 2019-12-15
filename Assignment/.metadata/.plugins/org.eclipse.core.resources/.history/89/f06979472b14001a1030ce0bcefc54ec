@@ -1,0 +1,18 @@
+public class testAny extends Thread{
+	public static void main(String[] args) {
+		testAny any=new testAny();
+		any.start();
+		Thread t1=new Thread(() -> {
+			System.out.println("Hi");
+		});
+		t1.start();
+	}
+
+	@Override
+	public void run() {
+		System.out.println("Hello wrold!");
+		super.run();
+	}
+	
+
+}

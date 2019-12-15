@@ -1,0 +1,12 @@
+1574840778983	Move compilation unit
+1574840782470	Delete element
+1574847726652	Encapsulate field 'implementation'
+1574850845706	Rename type 'Worker'
+1574852528539	Rename type 'Service'
+1574852559977	Rename type 'RepoCUD'
+1574852577324	Rename type 'StudentDAOImplementation'
+1574859516862	Delete element
+1574860803904	Delete element
+1574860869279	Delete element
+1574863620831	Delete element
+1574925010134	Rename type 'ServiceExecute'

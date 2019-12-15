@@ -1,0 +1,7 @@
+
+public class StudentCreate implements ServiceExecute{
+	public void execute() {
+		
+	}
+
+}

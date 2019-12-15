@@ -1,0 +1,20 @@
+import java.util.LinkedList;
+import java.util.List;
+
+public class ConnectionPool implements ConnectionPoolInterface{
+	List<Integer> connections=new LinkedList<Integer>();
+	public void getConnection(final int id) {
+		Thread t=new Thread(new Runnable() {
+			
+			public void run() {
+				connections.add(id);
+			}
+		});
+		
+	}
+
+	public void releaseConnection(int id) {
+		connections.remove(id);
+	}
+
+}

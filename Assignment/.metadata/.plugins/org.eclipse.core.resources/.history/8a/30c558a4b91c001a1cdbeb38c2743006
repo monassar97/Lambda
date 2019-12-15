@@ -1,0 +1,42 @@
+import java.util.LinkedList;
+import java.util.List;
+
+public class MyQueue {
+	public static void main(String[] args) {
+		
+	}
+	List<Node> queue;
+	Node front;
+	Node rear;
+	
+	
+	
+	
+	public MyQueue() {
+		this.queue = new LinkedList<Node>();
+		this.front = null;
+		this.rear = null;
+	}
+
+
+
+
+	public void add(int value) {
+		Node newNode=new Node(value);
+		queue.add(newNode);
+		if(queue.size()==0) {
+			front=newNode;
+		}
+		Node current=rear;
+		newNode.prev=rear;
+		rear.next=newNode;
+		rear=newNode;
+		
+	}
+	public void remove() {
+		Node newRear=rear.prev;
+		rear=newRear;
+		rear.next=null;
+	}
+	
+}

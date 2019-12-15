@@ -1,0 +1,9 @@
+
+public class Test {
+	public static void main(String[] args) {
+		AddToString test=str->"("+str+")";
+		System.out.println(test.add("hello"));
+		
+		FunctionTest test2=(String str)->{return str};
+	}
+}

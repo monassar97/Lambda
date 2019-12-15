@@ -1,0 +1,8 @@
+import java.util.List;
+
+public interface Repo {
+	public void createStudent(String name,String userName,List<Courses> courses);
+	public Student getStudent(int id);
+	public void deleteStudentById(int id);
+	
+}

@@ -1,0 +1,9 @@
+import java.util.HashMap;
+
+public class StudentUpdate implements ServiceInterface{
+
+	public void execute(HashMap<String, Object> map) {
+		
+	}
+
+}

@@ -1,0 +1,16 @@
+
+
+import java.util.HashMap;
+import java.util.List;
+
+public class CreateStudentService implements ServiceInterface{
+	RepoImplementation repo=new RepoImplementation();
+	IdGeneratorImplementation generatorImplementation=new IdGeneratorImplementation();
+	public void execute(HashMap<String, Object> map) {
+		List<Courses> list = (List<Courses>)map.get("courses");
+		List<Courses> courses = list;
+		Student student=new Student(generatorImplementation.generateId(),(String) map.get("name"), courses);
+		repo.createStudent(student);
+	}
+
+}

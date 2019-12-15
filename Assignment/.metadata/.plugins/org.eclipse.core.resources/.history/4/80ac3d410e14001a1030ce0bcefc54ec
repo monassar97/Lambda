@@ -1,0 +1,18 @@
+package com.arabBank.Threads.Test;
+
+public class TestX implements Runnable{
+	
+
+	public void run() {
+		for(int i=0;i<10;i++) {
+			System.out.println(Thread.currentThread().getName());
+		}
+	}
+	public static void main(String[] args) {
+		Thread t=new Thread(new TestX());
+		//t.start();
+		Thread t2=new Thread(new TestX());
+		t2.start();
+		Thread.MIN_PRIORITY;
+	}
+}

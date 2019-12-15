@@ -1,0 +1,15 @@
+public class Worker {
+	private StudentDAOImplementation implementation;
+
+	public Worker(StudentDAOImplementation implementation) {
+		super();
+		this.implementation = implementation;
+	}
+	Worker work=new Worker(new StudentDAOImplementation());
+
+
+	public void createStudent(Student student) {
+		
+	}
+
+}

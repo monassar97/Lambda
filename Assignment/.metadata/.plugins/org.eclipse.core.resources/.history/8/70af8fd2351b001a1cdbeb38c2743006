@@ -1,0 +1,50 @@
+import java.util.function.Function;
+
+public class TestGenerics {
+	public static void main(String[] args) {
+		
+//		ValueHolder<Integer> holder=new ValueHolder<>(4);
+//		System.out.println(holder.getvalue());
+//		
+//		ValueHolder<String> str=new ValueHolder<>("Mohammad");
+//		System.out.println(str.getvalue());
+//		
+//		str.replace("ahmad");
+//		System.out.println(str.getvalue());
+//		
+//		Function<String, Integer> mapper=x->x.length();
+//		ValueHolder<Integer> i= str.map(mapper);
+//		System.out.println(i.getvalue());
+//		
+//		Function<String, Number> mapper2=x->x.length();
+//		ValueHolder<Number> i2=str.map(mapper2);
+//		System.out.println(i2.getvalue());
+		MyFunction<String, Integer> function1=x->x.length();
+		MyFunction<Number, Boolean> function2=x->(x)?true:false;
+		MyFunction<Boolean, Integer> function3=x->x?0:1;
+		
+		MyFunction<String, Integer> result=function1.andThen(function2).andThen(function3);
+		System.out.println(result.apply("Mohammad"));
+		
+	}
+	
+	public static class ValueHolder<E>{
+		private final E e;
+		
+		public ValueHolder(E e) {
+			this.e = e;
+		}
+		
+		public<U> ValueHolder<U> map(Function<? super E, U> f){
+			ValueHolder<U> newHolder=new ValueHolder<U>(f.apply(e));
+			return newHolder ;
+		}
+		
+		public String getvalue() {
+			return "I am value holder of "+e.toString();
+		}
+		public void replace (E e) {
+			e=e;
+		}
+	}
+}

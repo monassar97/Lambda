@@ -1,0 +1,35 @@
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+public class RepoImplementation implements Repo{
+	public Map<Integer, Student> students=new HashMap<Integer, Student>();
+	public IdGeneratorImplementation generator=new IdGeneratorImplementation();
+	private int id;
+	
+	public void createStudent(String name, String userName,String password, List<Courses> courses) {
+		id = generator.generateId();
+		students.put(id, new Student(id, name, userName, password, courses));
+	}
+
+	public Student getStudent(int id) {
+		return students.get(id);
+	}
+
+	public void deleteStudentById(int id) {
+		students.remove(id);
+	}
+
+	public void updateStudent(Student student) {
+		students.put(id, student);
+	}
+
+	public List<Student> getAllStudents() {
+		List<Student> list=new LinkedList<Student>();
+		for(int id:students.keySet()) {
+			list.add(students.get(id));
+		}
+		return null;
+	}
+}

@@ -1,0 +1,15 @@
+import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.Function;
+
+public class Optionalhelper<E> {
+	private final E e;
+	
+	public Optionalhelper(E e) {
+		this.e = e;
+	}
+	public static <U,T> Optional<U> map(Optional<T> opt,Function<T,U> mapper){
+	   return opt.ofNullable(mapper.apply(e));
+
+	}
+}

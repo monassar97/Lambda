@@ -1,0 +1,5 @@
+import java.util.Map;
+
+public interface Repo {
+	private Map<Integer, Student> students;
+}

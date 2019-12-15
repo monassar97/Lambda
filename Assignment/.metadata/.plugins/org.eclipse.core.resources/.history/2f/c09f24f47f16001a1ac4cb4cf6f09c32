@@ -1,0 +1,10 @@
+import java.util.HashMap;
+
+public class StudentUpdate implements ServiceInterface{
+	RepoImplementation repo=new RepoImplementation();
+	
+	public void execute(HashMap<String, Object> map) {
+		
+	}
+
+}

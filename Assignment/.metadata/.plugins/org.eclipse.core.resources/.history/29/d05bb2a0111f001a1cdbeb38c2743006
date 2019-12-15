@@ -1,0 +1,158 @@
+import java.util.Iterator;
+
+public class MyList {
+	public static void main(String[] args) {
+		MyList queue=new MyList();
+		queue.addFirst(1);
+		queue.addFirst(0);
+		queue.addLast(3);
+		queue.addFirst(6);
+		queue.addFirst(6);
+		queue.print();
+		System.out.println(queue);
+		System.out.println(queue.size);
+		
+	}
+	Node first;
+	Node last;
+	int size;
+	public MyList() {
+		this.first = null;
+		this.last = null;
+	}
+
+
+	public void print () {
+		Node current=first;
+		while(current!=null) {
+			System.out.println(current.value);
+			current=current.next;
+		}
+	}
+
+	public void addFirst(int value) {
+		Node oldFirst=first;
+		Node newFirst=new Node(null, oldFirst, value);
+		first=newFirst;
+		if(oldFirst==null) {
+			last=newFirst;
+		}else {
+			oldFirst.prev=newFirst;
+		}
+		size++;
+	}
+	public void addLast(int value) {
+	Node oldLast=this.last;
+	Node newNode=new Node(oldLast, null, value);
+	last=newNode;
+	if(oldLast==null) {
+		first=newNode;
+	}else {
+		oldLast.next=newNode;
+	}
+	size++;
+	}
+	public Iterator<Integer> iterate(){
+		return new LinkedIterator(first);
+	}
+	public Iterator<Integer> iterateRevese(){
+		return new LinkedIterator(last);
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		Iterator<Integer> iterate=iterate();
+		if(iterate.hasNext()==false) {
+			return "[]";
+		}
+		
+		StringBuffer buffer=new StringBuffer();
+		buffer.append("[");
+		while(iterate.hasNext()) {
+			int next=iterate.next();
+			buffer.append(next);
+			if(iterate.hasNext()) {
+				buffer.append(" ,");
+			}
+		}
+		buffer.append("]");
+		return buffer.toString();
+	}
+	
+	
+	public String toStringRevese() {
+		Iterator<Integer> iterate=iterate();
+		if(iterate.hasNext()==false) {
+			return "[]";
+		}
+		
+		StringBuffer buffer=new StringBuffer();
+		buffer.append("[");
+		while(iterate.hasNext()) {
+			int next=iterate.next();
+			buffer.append(next);
+			if(iterate.hasNext()) {
+				buffer.append(" ,");
+			}
+		}
+		buffer.append("]");
+		return buffer.toString();
+	}
+
+
+
+	public class LinkedIterator implements Iterator<Integer>{
+		private Node current;
+		private Node lastAccessed;
+		
+		
+		public LinkedIterator(Node current) {
+			super();
+			this.current = current;
+		}
+
+		@Override
+		public boolean hasNext() {
+			if(current==null) {
+				return false;
+			}
+			return true;
+		}
+
+		@Override
+		public Integer next() {
+			lastAccessed=current;
+			current=current.next;
+			return lastAccessed.value;
+		}
+		
+	}
+	public class ReveseIterator implements Iterator<Integer>{
+		private Node current;
+		private Node lastAccessed;
+		
+		
+		public ReveseIterator(Node current) {
+			super();
+			this.current = current;
+		}
+
+		@Override
+		public boolean hasNext() {
+			if(current==null) {
+				return false;
+			}
+			return true;
+		}
+
+		@Override
+		public Integer next() {
+			lastAccessed=current;
+			current=current.prev;
+			return lastAccessed.value;
+		}
+		
+	}
+}

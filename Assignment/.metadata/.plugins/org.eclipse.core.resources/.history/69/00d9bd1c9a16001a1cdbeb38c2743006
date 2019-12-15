@@ -1,0 +1,28 @@
+import java.util.List;
+
+public class UserValidation implements Validation{
+	UserRepo repo=new UserRepo();
+	List<User> users=repo.getUsers();
+	
+	public boolean LogIn(String userName, String password) {
+		if(isUserExist(userName,password))
+			return true;
+		return false;
+	}
+	
+	public boolean isUserExist(String userName,String password) {
+		System.out.println(users.size());
+		System.out.println(userName+" "+password);
+		System.out.println(users.size());
+		for(int i=0;i<users.size();i++) {
+			System.out.println(users.get(i).getUsername()+" "+users.get(i).getPassword());
+			if(userName.equals(users.get(i).getUsername())) {
+				if(users.get(i).getPassword().equals(password)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+}

@@ -1,0 +1,23 @@
+public class DS {
+	int value;
+	int priorety;
+	
+	public DS(int value, int priorety) {
+		super();
+		this.value = value;
+		this.priorety = priorety;
+	}
+	public int getPriorety() {
+		return priorety;
+	}
+	public void setPriorety(int priorety) {
+		this.priorety = priorety;
+	}
+	public int getValue() {
+		return value;
+	}
+	public void setValue(int value) {
+		this.value = value;
+	}
+	
+}

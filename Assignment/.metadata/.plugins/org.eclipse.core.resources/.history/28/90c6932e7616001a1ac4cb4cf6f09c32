@@ -1,0 +1,25 @@
+import java.util.LinkedList;
+import java.util.List;
+
+public class UserValidation implements Validation{
+	private List<User> users=new LinkedList<User>();
+	
+	
+	public boolean LogIn(String userName, String password) {
+		
+		return false;
+	}
+
+
+	public boolean isUserExist(String userName) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+	public boolean isPasswordCorrect(String password) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+}

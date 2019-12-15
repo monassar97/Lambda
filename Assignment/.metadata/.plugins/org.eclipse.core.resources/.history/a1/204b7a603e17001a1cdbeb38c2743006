@@ -1,0 +1,4 @@
+@FunctionalInterface
+public interface FunctionTest {
+	public String addToString(String str);
+}

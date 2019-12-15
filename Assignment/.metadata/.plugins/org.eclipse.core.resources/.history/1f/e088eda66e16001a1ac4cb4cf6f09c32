@@ -1,0 +1,6 @@
+import java.util.List;
+
+public interface Repo {
+	public void createStudent(String name,String userName,List<Courses> courses);
+	
+}

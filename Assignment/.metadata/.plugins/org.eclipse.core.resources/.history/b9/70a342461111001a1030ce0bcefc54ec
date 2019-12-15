@@ -1,0 +1,68 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class App {
+	static Service service;
+	public static void main(String[] args) {
+		service=new Service();
+		String name;
+		long id;
+		Scanner in=new Scanner(System.in);
+		int operation=0;
+		System.out.println();
+		while(operation!=6) {
+		System.out.println("Welcome to CRUD system :");
+		System.out.println("Enter Operation number :");
+		System.out.println("1.Create");
+		System.out.println("2.Delete");
+		System.out.println("3.Update");
+		System.out.println("4.Read by Id");
+		System.out.println("5.Read All");
+		System.out.println("6.Exit");
+		operation=in.nextInt();
+		switch (operation) {
+		case 1:
+			System.out.print("Enter name : ");
+			name=in.next();
+			service.createStudent(name);
+			break;
+		case 2:
+			System.out.print("Enter Id to Delete : ");
+			id=in.nextLong();
+			service.deleteStudentById(id);
+			break;
+		case 3:
+			System.out.print("Enter Student id To update : ");
+			id=in.nextLong();
+			System.out.print("Enter Student id name : ");
+			name=in.next();
+			service.updateStudent(id, name);
+			break;
+		case 4:
+			System.out.println("Enter Student id To Read : ");
+			id=in.nextLong();
+			service.findStudentById(id);
+			break;
+		case 5:
+			service.findAllStudents();
+			break;
+		case 6:
+			break;
+		default:
+			System.out.println("Wrong Operation Entered");
+			break;
+		}
+
+		}
+	}
+	public void printList(ArrayList<Student> list) {
+		if(list.size()<=0) {
+			System.out.println("No Student's.");
+		}else {
+		for(int i=0;i<list.size();i++) {
+			System.out.println();
+			
+		}
+		}
+	}
+}

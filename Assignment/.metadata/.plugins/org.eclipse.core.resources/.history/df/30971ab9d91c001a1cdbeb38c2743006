@@ -1,0 +1,24 @@
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class TestC {
+	static Queue<Integer> queue=new LinkedList<Integer>();
+	static Queue<Integer> prior=new PriorityQueue<Integer>(5);
+	
+	public static void add(int value) {
+		if(prior.size()<5)
+			prior.add(value);
+		else {
+			prior.peek();
+		}
+		queue.add(value);
+	}
+	public static void main(String[] args) {
+		add(1);
+		 Queue<Integer> prior2=new PriorityQueue<Integer>(5);
+		 prior2.add(3);
+		 prior2.add(2);
+		 prior2.stream().forEach(System.out::println);
+	}
+}

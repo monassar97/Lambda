@@ -1,0 +1,13 @@
+public class Worker {
+	private StudentDAOImplementation implementation;
+	public StudentDAOImplementation getImplementation() {
+		return implementation;
+	}
+	public void setImplementation(StudentDAOImplementation implementation) {
+		this.implementation = implementation;
+	}
+	public void createStudent(Student student) {
+		
+	}
+
+}

@@ -1,0 +1,66 @@
+public class MyList {
+	public static void main(String[] args) {
+		MyList queue=new MyList();
+		queue.addFirst(1);
+		queue.addLast(3);
+		queue.addFirst(2);
+		queue.print();
+	}
+	Node front;
+	Node rear;
+	public MyList() {
+		this.front = null;
+		this.rear = null;
+	}
+
+
+	public void print () {
+		Node current=front;
+		while(current!=null) {
+			System.out.println(current.value);
+			current=current.next;
+		}
+	}
+
+	public void addLast(int value) {
+		if(front==null)
+		{
+			Node newNode=new Node(value);
+			front=newNode;
+			rear=newNode;
+		}else {
+		Node newNode=new Node(value);
+		Node current=rear;
+		rear.next=newNode;
+		rear=newNode;
+		rear.prev=current;
+		}
+	}
+	public void addFirst(int value) {
+		if(rear==null)
+		{
+			Node newNode=new Node(value);
+			rear=newNode;
+			front=newNode;
+		}else {
+		Node newNode=new Node(value);
+		Node current=rear;
+		rear.next=newNode;
+		rear=newNode;
+		rear.prev=current;
+		}
+	}
+	public boolean remove() {
+		if(front==null)
+			return false;
+		if(front==rear) {
+			rear=null;
+			front=null;
+			return true;
+		}
+		Node newRear=rear.prev;
+		rear=newRear;
+		rear.next=null;
+		return true;
+	}
+}

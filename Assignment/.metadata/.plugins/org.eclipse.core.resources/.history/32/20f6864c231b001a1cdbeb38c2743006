@@ -1,0 +1,21 @@
+public class TestGenerics {
+	public static void main(String[] args) {
+		ValueHolder<Integer> holder=new ValueHolder<>();
+	}
+	
+	public class ValueHolder<E>{
+		E e;
+
+		public ValueHolder(E e) {
+			this.e = e;
+		}
+		
+		public E getvalue() {
+			return (E) ("I am value holder of"+e.toString());
+		}
+		public void replace (E e) {
+			this.e=e;
+		}
+	}
+	
+}

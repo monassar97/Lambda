@@ -1,0 +1,11 @@
+
+public class MyHashMap <K,V>{
+	
+	private Pair<K, V>[] buckets;
+	private final int capacity=10;
+	public MyHashMap() {
+		super();
+	}
+	
+	
+}

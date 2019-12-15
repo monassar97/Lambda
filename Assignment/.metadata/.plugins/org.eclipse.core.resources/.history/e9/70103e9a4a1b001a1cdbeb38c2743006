@@ -1,0 +1,12 @@
+import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.Function;
+
+public class Optionalhelper {
+	public static <U,T> Optional<U> map(Optional<T> opt,Function<?super T,U> mapper){
+		T t;
+		opt.ifPresent( mapper.apply(t));
+		Optional<T> op=new Optional
+		return null;
+	}
+}

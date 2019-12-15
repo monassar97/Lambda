@@ -1,0 +1,20 @@
+
+public class Account {
+	private int balance;
+	public  void deposit(int value) {
+		balance+=value;
+	}
+	public  void draw(int value) {
+		if(balance-value<0)
+			System.out.println("Not Enough balance!");
+		else {
+			balance-=value;	
+		}
+		
+	}
+	public static void main(String[] args) {
+		Account a=new Account();
+		a.deposit(1000);
+	}
+	
+}

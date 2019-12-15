@@ -1,0 +1,35 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class Student {
+	private long id;
+	private String name;
+
+	public Student(long id) {
+		map.put(id, name);
+		this.id = count++;
+	}
+	public Student() {
+		map.put(id, name);
+		this.id = count++;
+	}
+	public Student(String name) {
+		this();
+		this.name = name;
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", name=" + name + "]";
+	}
+}

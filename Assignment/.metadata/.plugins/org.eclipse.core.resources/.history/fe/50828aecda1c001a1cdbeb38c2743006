@@ -1,0 +1,30 @@
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class TestC {
+
+	static Queue<Integer> prior=new PriorityQueue<Integer>();
+	static int minValue;
+	public static void add(int value) {
+		if(prior.size()<5)
+			prior.add(value);
+		else {
+			if(prior.peek()<value) {
+			prior.remove();
+			prior.add(value);
+			} }
+		minValue
+	}
+	public static void main(String[] args) {
+		
+		add(1);
+		add(2);
+		add(3);
+		add(4);
+		add(5);
+		add(6);
+		add(7);
+		add(2);
+		prior.stream().forEach(System.out::println);
+	}
+}

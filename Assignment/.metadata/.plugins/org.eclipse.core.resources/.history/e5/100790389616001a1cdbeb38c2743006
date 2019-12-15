@@ -1,0 +1,6 @@
+public class UserRepo {
+	
+	public void CreateUser(User user) {
+		
+	}
+}

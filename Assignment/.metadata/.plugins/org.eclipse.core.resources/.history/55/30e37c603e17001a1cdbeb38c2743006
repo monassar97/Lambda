@@ -1,0 +1,4 @@
+@FunctionalInterface
+public interface AddToString {
+	public String add(String str);
+}

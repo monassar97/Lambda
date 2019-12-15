@@ -1,0 +1,13 @@
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class TestC {
+	Queue<Integer> queue=new LinkedList<Integer>();
+	Queue<Integer> prior=new PriorityQueue<Integer>(5);
+	
+	public static void main(String[] args) {
+		
+		
+	}
+}

@@ -1,0 +1,19 @@
+import java.util.LinkedList;
+import java.util.List;
+
+public class MyList {
+	private List<Integer> integers=new LinkedList<Integer>();
+	
+	public MyList() {
+		for(int i=0;i<Integer.MAX_VALUE;i++) {
+			
+		}
+	}
+	
+	public boolean add(int i) {
+		return integers.add(i);
+	}
+	public int get(int index) {
+		return integers.get(index);
+	}
+}

@@ -1,0 +1,22 @@
+public class testAny extends Thread{
+	public static void main(String[] args) {
+		testAny any=new testAny();
+		any.start();
+		Thread t1=new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+	}
+
+	@Override
+	public void run() {
+		System.out.println("Hello wrold!");
+		super.run();
+	}
+	
+
+}

@@ -1,0 +1,9 @@
+import java.util.HashMap;
+
+public class StudentDelete implements ServiceInterface{
+	RepoImplementation repo=new RepoImplementation();
+	public void execute(HashMap<String, Object> map) {
+		repo.deleteStudentById(Integer.valueOf((String) map.get("id")));
+	}
+
+}

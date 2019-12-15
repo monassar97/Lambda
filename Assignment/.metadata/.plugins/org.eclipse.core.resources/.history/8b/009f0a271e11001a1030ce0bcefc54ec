@@ -1,0 +1,20 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class StudentReadAll implements ServiceExecute{
+	RepoR repo2=new RepoR();
+	public void execute(HashMap<String, String> mp) {
+		v(repo2.findAllStudents());
+		
+	}
+	public static void printList(ArrayList<Student> list) {
+		if(list.size()<=0) {
+			System.out.println("No Student's.");
+		}else {
+		for(int i=0;i<list.size();i++) {
+			System.out.println("Student ID : "+list.get(i).getId()+" Student Name : "+list.get(i).getName());
+		}
+		}
+	}
+
+}

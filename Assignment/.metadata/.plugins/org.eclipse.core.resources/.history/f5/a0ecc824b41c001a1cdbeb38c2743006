@@ -1,0 +1,27 @@
+import java.util.List;
+
+public class MyQueue {
+	List<Node> queue;
+	Node front;
+	Node rear;
+	
+	
+	
+	
+	public MyQueue() {
+		this.queue = null;
+		this.front = null;
+		this.rear = null;
+	}
+
+
+
+
+	public void add(int value) {
+		Node node=new Node(value);
+		queue.add(node);
+		if(queue.size()==0) {
+			front=node;
+		}
+	}
+}

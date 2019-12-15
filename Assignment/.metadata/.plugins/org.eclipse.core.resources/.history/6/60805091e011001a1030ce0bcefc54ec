@@ -1,0 +1,18 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+
+public class Test {
+	public static void main(String[] args) {
+		FileReader in;
+		try {
+			in = new FileReader("");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		BufferedReader reader=new BufferedReader(in);
+	}
+}

@@ -1,0 +1,11 @@
+package services;
+
+import java.util.HashMap;
+
+public class CreateStudentService implements ServiceInterface{
+
+	public void execute(HashMap<String, Object> map) {
+		
+	}
+
+}

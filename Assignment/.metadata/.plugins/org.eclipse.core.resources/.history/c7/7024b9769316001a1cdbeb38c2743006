@@ -1,0 +1,14 @@
+public class userConnection {
+	UserValidation valid=new UserValidation();
+	public boolean check(User user) {
+		if(valid.isUserExist(user.getUsername(), user.getPassword())) {
+			user.getConnection().getRepo();
+			Student student=new Student();
+			student.setName("ahmad");
+			student.setCourses(null);
+			user.getConnection().getRepo().createStudent(student);
+		}
+		
+		return false;
+	}
+}

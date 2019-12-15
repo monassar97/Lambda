@@ -1,0 +1,20 @@
+import java.util.List;
+
+public class userConnection {
+	private UserValidation valid=new UserValidation();
+	public void check(User user) {
+		if(valid.isUserExist(user.getUsername(), user.getPassword())) {
+			user.getConnection().getRepo();
+			Student student=new Student();
+			student.setName("ahmad");
+			student.setCourses(null);
+			user.getConnection().getRepo().createStudent(student);
+			List<Student> list=user.getConnection().getRepo().getAllStudents();
+			for(int i=0;i<list.size();i++) {
+				System.out.println(list.get(i).getName());
+			}
+			
+		}
+
+	}
+}

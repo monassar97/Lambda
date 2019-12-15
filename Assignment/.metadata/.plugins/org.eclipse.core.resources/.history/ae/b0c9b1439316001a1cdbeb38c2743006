@@ -1,0 +1,5 @@
+public class userConnection {
+	public boolean check(User user) {
+		return false;
+	}
+}

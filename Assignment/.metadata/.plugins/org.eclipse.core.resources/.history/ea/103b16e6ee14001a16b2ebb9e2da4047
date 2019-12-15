@@ -1,0 +1,17 @@
+public class APP {
+	public static void main(String[] args) {
+		Cache cache=new Cache();
+		cache.add(1);
+		cache.add(2);
+		cache.add(3);
+		cache.add(4);
+		//cache.addValueToDS(1);
+		//cache.addValueToDS(2);
+		//cache.addValueToDS(3);
+		//cache.addValueToDS(4);
+		cache.get(4);
+		cache.add(5);
+		Thread.sleep(300);
+		cache.print();
+	}
+}

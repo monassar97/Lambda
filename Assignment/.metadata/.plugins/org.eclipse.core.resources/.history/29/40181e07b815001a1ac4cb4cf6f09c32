@@ -1,0 +1,11 @@
+package com.ArabBank.lombok.Cls;
+
+import java.io.File;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        File file=new File("");
+    }
+}

@@ -1,0 +1,116 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.OptionalDouble;
+import java.util.function.Consumer;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Collectors.*;
+import java.util.stream.Stream;
+
+public class MainApplication {
+	static Student[] students=new Student[] {
+			Student.student("Ahmad",20,Gender.MALE,true,Course.MATH,Course.PHYSICS),
+			Student.student("Mohammad",25,Gender.MALE,true,Course.JAVA,Course.MATH),
+			Student.student("Esa",27,Gender.MALE,false,Course.ENGLISH,Course.JAVA),
+			Student.student("Esra",19,Gender.FEMALE,true,Course.PHYSICS,Course.MATH),
+			Student.student("Dana",40,Gender.FEMALE,true,Course.ENGLISH,Course.MATH),
+			Student.student("Ruba",22,Gender.FEMALE,true,Course.CHEMISTRY,Course.PHYSICS)
+	}; 
+	static MyFunction<String,String > myf;
+	public static void main(String[] args) {
+		System.out.println(activeAndHaveMathCourseOrPysicsCourse());
+		System.out.println(numberOfStudentInCourse());
+		System.out.println(groupStudentsByAge());
+		System.out.println(groupStudentsByGender());
+		in();
+		in2();
+		System.out.println(reduceAsList());
+
+		System.out.println(getMax());
+		System.out.println(getmx());
+		myf=x->x.substring(0, 2);
+		for(int i=0;i<students.length;i++) {
+			System.out.print(myf.apply(students[i].getName().toUpperCase()));
+		}
+		gets().forEach(System.out::println);;
+	
+		}
+	public static List<String> gets(){
+		return Stream.of(students).filter(myf).collect(Collectors.toList());
+	}
+	public static List<Student> active(){
+		return Stream.of(students).filter(Student::isActive).collect(Collectors.toList());
+	}
+	public static List<Student> activeAndMale(){
+		return Stream.of(students).filter(student->student.isActive())
+				.filter(student->student.getGender()
+						.equals(Gender.MALE)).map(student->student)
+				.collect(Collectors.toList());
+		
+	}
+	public static List<Student> activeAndHaveMathCourseOrPysicsCourse(){
+
+		return Stream.of(students).filter(Student::isActive).
+				filter(student->student.getCourses()
+						.contains(Course.MATH)||student.getCourses()
+						.contains(Course.PHYSICS))
+				.sorted((st1,st2)->st1.getName().compareTo(st2.getName()))
+				.collect(Collectors.toList());
+	}
+	public static Map<Course, Long> numberOfStudentInCourse(){
+		
+		return Stream.of(students).flatMap(student->student.getCourses().stream())
+				.collect(Collectors.groupingBy(c->c,Collectors.counting()));
+	}
+	public static Map<Integer, Long> groupStudentsByAge(){
+		
+		return Stream.of(students).map(student->student.getAge())
+				.collect(Collectors.groupingBy(c->c,Collectors.counting()));
+	}
+	public static Map<Gender, Long> groupStudentsByGender(){
+		
+		return Stream.of(students).map(student->student.getGender())
+				.collect(Collectors.groupingBy(c->c,Collectors.counting()));
+	}
+	Course[] list=Course.values();
+	//public Map<Course, List<Student>> groupStudentByCourse(){
+		
+	//}
+	public static List<Course> courses(){
+		return Stream.of(students).filter(st->st.getAge()>30)
+				.flatMap(st->st.getCourses().stream())
+				.collect(Collectors.toList());
+	}
+	public static void in() {
+		OptionalDouble d= IntStream.range(0, 10).filter(x->x%2==0).average();
+		System.out.println(d);
+	}
+	public static void in2() {
+		int reduce=IntStream.range(1, 10).reduce(1,(a,b)->a*b);
+		System.out.println(reduce);
+	}
+	public static List<Student> reduceAsList(){
+		return Stream.of(students).reduce(new ArrayList<Student>(),
+				(myList,student)->{
+					(myList).add(student);
+					return myList;
+				}
+				,(a,b)->{
+					a.addAll(b);
+					return a;
+				});
+	}
+	public static Student getMax() {
+		return Stream.of(students)
+				.reduce(students[0]
+						,(st1,st2)->(st1.getAge()>st2.getAge()?st1:st2));
+	}
+	public static int getmx() {
+		return IntStream.range(1, 10).reduce(0, (a,b)->(a>b?a:b));
+	}
+	
+}

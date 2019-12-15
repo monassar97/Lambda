@@ -1,0 +1,4 @@
+public class Service {
+	RepoCUD repo1=new RepoCUD();
+	RepoR repo2=new RepoR();
+}

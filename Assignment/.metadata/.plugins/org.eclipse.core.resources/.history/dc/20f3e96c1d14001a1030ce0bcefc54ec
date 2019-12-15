@@ -1,0 +1,6 @@
+public class ThreadRunner extends Thread{
+	public static void main(String[] args) {
+		ThreadRunner t1=new ThreadRunner();
+		
+	}
+}

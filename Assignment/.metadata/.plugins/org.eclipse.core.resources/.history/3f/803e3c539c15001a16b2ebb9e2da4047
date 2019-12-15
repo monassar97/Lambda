@@ -1,0 +1,14 @@
+public class ReaderThread extends Thread{
+	private MyList myList;
+	
+	public ReaderThread(MyList myList) {
+		this.myList = myList;
+	}
+
+	@Override
+	public void run() {
+		
+		super.run();
+	}
+	
+}

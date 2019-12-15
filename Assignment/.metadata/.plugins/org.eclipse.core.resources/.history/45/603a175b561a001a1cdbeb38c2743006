@@ -1,0 +1,10 @@
+
+public class Tuple {
+	public Course c;
+	public Student t;
+	
+	public Tuple() {
+		
+	}
+	
+}

@@ -1,0 +1,4 @@
+
+public enum Course {
+JAVA,MATH,CHEMISTRY,ENGLISH;
+}

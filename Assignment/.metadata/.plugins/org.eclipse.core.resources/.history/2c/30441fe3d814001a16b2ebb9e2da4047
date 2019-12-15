@@ -1,0 +1,12 @@
+public class PrioretyGenerator {
+	static int Xpriorety=1;
+
+	public int getPriorety() {
+		return Xpriorety;
+	}
+
+	public void setPriorety(int priorety) {
+		this.Xpriorety = priorety;
+	}
+	
+}

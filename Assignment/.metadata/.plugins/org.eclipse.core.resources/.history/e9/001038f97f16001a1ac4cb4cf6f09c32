@@ -1,0 +1,13 @@
+import java.util.HashMap;
+import java.util.List;
+
+public class StudentUpdate implements ServiceInterface{
+	RepoImplementation repo=new RepoImplementation();
+	
+	public void execute(HashMap<String, Object> map) {
+		List<Courses> courses = (List<Courses>)map.get("courses");
+		Student student=new Student((int)map.get("id"),(String) map.get("name"), courses);
+		repo.createStudent(student);
+	}
+
+}

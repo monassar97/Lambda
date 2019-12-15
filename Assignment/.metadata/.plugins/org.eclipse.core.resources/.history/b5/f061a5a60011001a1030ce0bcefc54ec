@@ -1,0 +1,6 @@
+public class Worker {
+	private StudentDAOImplementation implementation;
+	private	Student student;
+	
+
+}

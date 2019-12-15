@@ -1,0 +1,7 @@
+
+public class MyHashMap <K,V>{
+	
+	private Pair<K, V>[] buckets;
+	private int capacity;
+	
+}

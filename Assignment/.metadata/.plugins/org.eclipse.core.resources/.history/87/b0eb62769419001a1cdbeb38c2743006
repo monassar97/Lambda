@@ -1,0 +1,19 @@
+import java.util.LinkedList;
+import java.util.List;
+
+public class MainApplication {
+	static Student[] students=new Student[] {
+			Student.student("Ahmad",20,Gender.MALE,true,Course.CHEMISTRY,Course.MATH),
+			Student.student("Mohammad",25,Gender.MALE,true,Course.CHEMISTRY,Course.MATH),
+			Student.student("Esa",27,Gender.MALE,false,Course.CHEMISTRY,Course.MATH),
+			Student.student("Esra",19,Gender.FEMALE,true,Course.CHEMISTRY,Course.MATH),
+			Student.student("Dana",40,Gender.FEMALE,true,Course.CHEMISTRY,Course.MATH),
+			Student.student("Ruba",22,Gender.FEMALE,true,Course.CHEMISTRY,Course.MATH)
+	}; 
+	public static void main(String[] args) {
+		
+	}
+	public List<Student> active(){
+		List<Student> activeStudents=new LinkedList<Student>();
+	}
+}

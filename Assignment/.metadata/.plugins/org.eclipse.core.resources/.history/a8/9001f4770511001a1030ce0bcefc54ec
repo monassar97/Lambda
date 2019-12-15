@@ -1,0 +1,39 @@
+import java.util.HashMap;
+
+public class StudentDAOImplementation implements StudentsDAO{
+	
+	Student student;
+	private HashMap<Long, String> map=student.map;
+	Countergenerator generator;
+	
+	
+	public void CreateStudent(String name) {
+		long count=generator.getCount();
+		map.put(count,name);
+
+		student=new Student(count,name);
+	}
+
+	public void deleteStudent(Student student) {
+		map.remove(student.getId());
+	}
+	public void deleteStudentById(long id) {
+		if(map.containsKey(id)) {
+		map.remove(student.getId());
+		}
+		else {
+			System.out.println("Student Does not Exist !");
+		}
+	}
+
+	public void updateStudent(long id,String newName) {
+		if(map.containsKey(id)) {
+			map.put(id, newName);
+		}
+		else 
+			System.out.println("Student Does not Exist !");
+	}
+
+	
+	
+}

@@ -1,0 +1,40 @@
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class TestC {
+	static Queue<Double> prior = new PriorityQueue<Double>(6);
+
+	public static void getMedian() {
+		if (prior.size() % 2 == 0) {
+			// even
+			double first = 0;
+			for (int i = 0; i < (prior.size() + 4) / 2; i++) {
+				first = prior.peek();
+			} 
+			System.out.println((first + prior.poll()) / 2);
+			// odd
+		} else {
+			for (int i = 0; i < prior.size() / 2; i++) {
+				prior.poll();
+			}
+			prior.poll();
+			System.out.println(prior.poll());
+		}
+
+	}
+
+	public static void main(String[] args) {
+		prior.add(1.0);
+		prior.add(2.0);
+		prior.add(3.0);
+		prior.add(4.0);
+		prior.add(5.0);
+		prior.add(6.0);
+		prior.add(7.0);
+		prior.add(8.0);
+
+
+
+		getMedian();
+	}
+}

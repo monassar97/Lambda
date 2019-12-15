@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+public class TestGenerics {
+	public static void main(String[] args) {
+		
+	}
+	
+	public class ValueHolder<E>{
+		E e;
+
+		public ValueHolder(E e) {
+			super();
+			this.e = e;
+		}
+		
+		public E getvalue() {
+			return  ("I am value holder of"+e.toString());
+		}
+	}
+	
+}

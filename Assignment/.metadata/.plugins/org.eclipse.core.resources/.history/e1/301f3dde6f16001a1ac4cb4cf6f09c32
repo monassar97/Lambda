@@ -1,0 +1,32 @@
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class RepoImplementation implements Repo{
+	public Map<Integer, Student> students=new HashMap<Integer, Student>();
+	public IdGeneratorImplementation generator=new IdGeneratorImplementation();
+	
+	public void createStudent(String name, String userName, List<Courses> courses) {
+		int id=generator.generateId();
+		Student
+		//students.put(id,)
+	}
+
+	public Student getStudent(int id) {
+		
+		return null;
+	}
+
+	public void deleteStudentById(int id) {
+		
+	}
+
+	public void updateStudent(Student student) {
+		
+	}
+
+	public List<Student> getAllStudents() {
+
+		return null;
+	}
+}

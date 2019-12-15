@@ -1,0 +1,19 @@
+
+public class MyHashMap <K,V>{
+	
+	private Pair<K, V>[] buckets;
+	public class Pair<K,V>{
+		private K key;
+		private V value;
+		public Pair(K key, V value) {
+			super();
+			this.key = key;
+			this.value = value;
+		}
+		
+		public void put(V value) {
+			if()
+		}
+		
+	}
+}

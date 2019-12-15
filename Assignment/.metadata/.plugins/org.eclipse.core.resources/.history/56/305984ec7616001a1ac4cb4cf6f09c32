@@ -1,0 +1,11 @@
+public class ConnectionPool implements ConnectionPoolInterface{
+
+	public void getConnection(int id) {
+		
+	}
+
+	public void releaseConnection(int id) {
+		
+	}
+
+}

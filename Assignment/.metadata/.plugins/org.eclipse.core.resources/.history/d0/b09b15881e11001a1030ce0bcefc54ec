@@ -1,0 +1,8 @@
+
+public class Countergenerator implements InterfaceGenerator{
+	static int count=1;
+	public int getCount() {
+		return count++;
+	}
+
+}

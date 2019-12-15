@@ -1,0 +1,8 @@
+import java.util.HashMap;
+
+public class StudentReadId  implements ServiceExecute{
+	public void execute(HashMap<String, String> mp) {
+		repo1.updateStudent(Integer.parseInt(mp.get("id")),mp.get("name"));
+	}
+
+}

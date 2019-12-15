@@ -1,0 +1,81 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class App {
+	public static void main(String[] args) {
+		Start();
+	}
+	
+	public static void Start() {
+
+		HashMap<String , String>mp=new HashMap<String, String>();
+		String name;
+		StudentCreate cr=new StudentCreate();
+		StudentDelete cd=new StudentDelete();
+		StudentUpdate cu=new StudentUpdate();
+		StudentReadId cri=new StudentReadId();
+		StudentReadAll cria=new StudentReadAll();
+		long id=0L;
+		Scanner in=new Scanner(System.in);
+		int operation=0;
+		System.out.println();
+		System.out.println("Welcome to CRUD system :");
+		System.out.println("Enter Operation number :");
+		System.out.println("1.Create");
+		System.out.println("2.Delete");
+		System.out.println("3.Update");
+		System.out.println("4.Read by Id");
+		System.out.println("5.Read All");
+		System.out.println("6.Exit");
+		
+		while(operation!=6) {
+		
+		operation=in.nextInt();
+		switch (operation) {
+		case 1:
+			System.out.print("Enter name : ");
+			name=in.nextLine();
+			mp.put("name",name);
+			cr.execute(mp);
+			System.out.println("Enter Operation number :");
+			break;
+		case 2:
+			System.out.print("Enter Id to Delete : ");
+			id=in.nextLong();
+			mp.put("id",Long.toString(id));
+			cd.execute(mp);
+			System.out.println("Enter Operation number :");
+			break;
+		case 3:
+			System.out.print("Enter Student id To update : ");
+			id=in.nextLong();
+			System.out.print("Enter Student id name : ");
+			name=in.nextLine();
+			mp.put("id",Long.toString(id));
+			mp.put("name",name);
+			cu.execute(mp);
+			System.out.println("Enter Operation number :");
+			break;
+		case 4:
+			System.out.println("Enter Student id To Read : ");
+			id=in.nextLong();
+			mp.put("id",Long.toString(id));
+			cri.execute(mp);
+			System.out.println("Enter Operation number :");
+			break;
+		case 5:
+			cria.execute(mp);
+			System.out.println("Enter Operation number :");
+			break;
+		case 6:
+			break;
+		default:
+			System.out.println("Wrong Operation Entered");
+			break;
+		}
+
+		}
+	}
+
+}

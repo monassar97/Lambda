@@ -1,0 +1,33 @@
+import java.util.function.Function;
+
+public class TestGenerics {
+	public static void main(String[] args) {
+		ValueHolder<Integer> holder=new ValueHolder<>(4);
+		System.out.println(holder.getvalue());
+		ValueHolder<String> str=new ValueHolder<>("Mohammad");
+		System.out.println(str.getvalue());
+		str.replace("ahmad");
+		System.out.println(str.getvalue());
+		ValueHolder<Integer> i= str.map(str.getvalue());
+
+	}
+	
+	public static class ValueHolder<E>{
+		private final E e;
+		
+		public ValueHolder(E e) {
+			this.e = e;
+		}
+		
+		public<U> ValueHolder<U> map(Function<E, U> f){
+			ValueHolder<U> newHolder= ValueHolder<E> ;
+			return null ;
+		}
+		public String getvalue() {
+			return "I am value holder of "+e.toString();
+		}
+		public void replace (E e) {
+			e=e;
+		}
+	}
+}

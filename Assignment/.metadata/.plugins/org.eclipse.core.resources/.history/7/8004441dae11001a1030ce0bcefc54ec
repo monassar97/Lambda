@@ -1,0 +1,5 @@
+import java.util.HashMap;
+
+public interface ServiceExecute {
+	public void execute(HashMap<String, String> mp);
+}

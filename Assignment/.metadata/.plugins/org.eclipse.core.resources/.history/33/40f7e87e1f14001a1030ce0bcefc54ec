@@ -1,0 +1,19 @@
+
+
+public class Test  {
+	static int x=0;
+	public static void print() {
+		{
+		for(int i=0;i<10;i++) {
+			System.out.println(Thread.currentThread().getName()+"-i is : "+x++);
+		}
+		}
+	}
+	public static void print2() {
+		{
+		for(int i=0;i<10;i++) {
+			System.out.println(Thread.currentThread().getName()+"-i is : "+x--);
+		}
+		}
+	}
+}

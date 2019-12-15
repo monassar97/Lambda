@@ -1,0 +1,52 @@
+package com.arabBank.Threads.Test;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class TestThread extends Thread{
+	@Override
+	public void run() {
+		if()
+		super.run();
+	}
+
+	public String readFile(String path) throws IOException {
+		   
+	      String line=null;
+	      int x=0;
+		try {
+			 FileReader fileReader =
+	                 new FileReader(path);
+
+	         BufferedReader bufferedReader =
+	                 new BufferedReader(fileReader);
+
+	         for (int check = 0; check <= x; check++) {
+
+	             line += bufferedReader.readLine();
+	             line+="/n";
+	         }
+	         if (line == null) {
+	             x = -1;
+	         } else {
+	             x++;
+	         }
+
+	         bufferedReader.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return line;
+	      
+
+	      
+		
+		}
+		
+   public static void main(final String[] arguments) {
+	   Thread t1=new Thread();
+	   
+   }
+}

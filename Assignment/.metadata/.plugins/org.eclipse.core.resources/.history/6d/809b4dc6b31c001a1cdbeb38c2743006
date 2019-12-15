@@ -1,0 +1,7 @@
+import java.util.List;
+
+public class MyQueue {
+	List<Node> queue;
+	Node front;
+	Node rear;
+}

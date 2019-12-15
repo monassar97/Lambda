@@ -1,0 +1,4 @@
+public interface ConnectionPoolInterface {
+	public void getConnection(int id);
+	
+}

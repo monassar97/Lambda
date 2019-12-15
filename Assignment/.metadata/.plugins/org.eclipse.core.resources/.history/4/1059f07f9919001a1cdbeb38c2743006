@@ -1,0 +1,85 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.function.Consumer;
+import java.util.stream.Stream;
+
+public class MainApplication {
+	static Student[] students=new Student[] {
+			Student.student("Ahmad",20,Gender.MALE,true,Course.CHEMISTRY,Course.MATH),
+			Student.student("Mohammad",25,Gender.MALE,true,Course.JAVA,Course.MATH),
+			Student.student("Esa",27,Gender.MALE,false,Course.ENGLISH,Course.JAVA),
+			Student.student("Esra",19,Gender.FEMALE,true,Course.PHYSICS,Course.MATH),
+			Student.student("Dana",40,Gender.FEMALE,true,Course.ENGLISH,Course.MATH),
+			Student.student("Ruba",22,Gender.FEMALE,true,Course.CHEMISTRY,Course.PHYSICS)
+	}; 
+	public static void main(String[] args) {
+	}
+	public List<Student> active(){
+		List<Student> activeStudents=new LinkedList<Student>();
+		for(int i=0;i<students.length;i++) {
+			if(students[i].isActive()) {
+				activeStudents.add(students[i]);
+			}
+		}
+		return activeStudents;
+	}
+	public List<Student> activeAndMale(){
+		List<Student> activeStudents=new LinkedList<Student>();
+		for(int i=0;i<students.length;i++) {
+			if(students[i].isActive()&&students[i].getGender()==Gender.MALE) {
+				activeStudents.add(students[i]);
+			}
+		}
+		return activeStudents;
+	}
+	public List<Student> activeAndHavaMathCourseOrPysicsCourse(){
+		List<Student> activeStudents=new LinkedList<Student>();
+		for(int i=0;i<students.length;i++) {
+			if(students[i].isActive()) {
+				List<Course> courses=students[i].getCourses();
+				if(courses.contains(Course.MATH)||courses.contains(Course.PHYSICS))
+					activeStudents.add(students[i]);
+			}
+		}
+		return activeStudents;
+	}
+	public Map<Course, Integer> numberOfStudentInCourse(){
+		Map<Course, Integer> map=new HashMap<Course, Integer>();
+		for(int i=0;i<students.length;i++) {
+			List<Course> courses=students[i].getCourses();
+			for(int j=0;j<courses.size();j++) {
+				int count=Integer.valueOf((courses.get(j).toString()));
+				map.put(courses.get(j), map.getOrDefault(courses.get(j), 1));
+			}
+		}
+		
+		return map;
+	}
+	public Map<Course, List<Student>> groupStudentByCourse(){
+		Map<Course, List<Student>> map=new HashMap<Course, List<Student>>();
+		List<Course> courses=courses();
+		for(int i=0;i<students.length;i++) {
+			List<Course> stCourses=students[i].getCourses();
+			List <Student> students2=new LinkedList<Student>();
+			Stream.of(stCourses).forEach(new Consumer<Course>() {
+
+				@Override
+				public void accept(Course t) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+		}
+		return map;
+		
+	}
+	public List<Course> courses(){
+		List<Course> enumValues = Arrays.asList(Course.values());
+		return enumValues;
+	}
+	
+}

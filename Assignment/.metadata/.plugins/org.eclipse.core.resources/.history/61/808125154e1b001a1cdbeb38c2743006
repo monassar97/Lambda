@@ -1,0 +1,10 @@
+import java.util.Optional;
+import java.util.function.Function;
+public class Optionalhelper<E> {
+
+	public static <U,T> Optional<U> map(Optional<T> opt,MyFunction<?super T,?extends U> mapper){
+		
+	   return opt.map((Function<? super T, ? extends U>) mapper);
+	}
+	
+}

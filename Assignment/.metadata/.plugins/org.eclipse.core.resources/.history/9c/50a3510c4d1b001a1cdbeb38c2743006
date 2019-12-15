@@ -1,0 +1,9 @@
+import java.util.Optional;
+public class Optionalhelper<E> {
+
+	public static <U,T> Optional<U> map(Optional<T> opt,MyFunction<T,U> mapper){
+		U u=mapper.apply(opt.get());
+	   return Optional.ofNullable(u);
+
+	}
+}

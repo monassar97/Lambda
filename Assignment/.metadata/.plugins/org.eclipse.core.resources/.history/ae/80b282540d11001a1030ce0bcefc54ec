@@ -1,0 +1,10 @@
+public class Service {
+	RepoCUD repo1=new RepoCUD();
+	RepoR repo2=new RepoR();
+	public void createStudent(String name) {
+		repo1.CreateStudent(name);
+	}
+	public void updateStudent(long id,String name) {
+		repo1.updateStudent(id, name);
+	}
+}

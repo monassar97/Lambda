@@ -1,0 +1,28 @@
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Queue;
+public class TestC {
+	Queue<Integer>queue1=new PriorityQueue<Integer>();
+	Queue<Integer>queue2=new PriorityQueue<Integer>();
+
+	public static void add() {
+		
+	}
+	public static void getMedian() {
+		
+	}
+	public static void main(String[] args) {
+		add(1.0);
+		add(2.0);
+		add(3.0);
+		add(4.0);
+		add(5.0);
+		add(6.0);
+		add(7.0);
+		add(8.0);
+		getMedian();
+
+	}
+}

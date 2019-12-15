@@ -1,0 +1,13 @@
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class DataStrucures {
+	public boolean solve() {
+		String str="{([])}";
+		Deque<Character> queue=new LinkedList<Character>();
+	}
+	public static void main(String[] args) {
+		
+	}
+}

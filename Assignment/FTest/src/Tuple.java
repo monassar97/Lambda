@@ -1,0 +1,17 @@
+
+public class Tuple {
+	public Course c;
+	public Student x;
+	public Tuple(Course c, Student x) {
+		super();
+		this.c = c;
+		this.x = x;
+	}
+	public Student getX() {
+		return x;
+	}
+	
+
+	
+	
+}

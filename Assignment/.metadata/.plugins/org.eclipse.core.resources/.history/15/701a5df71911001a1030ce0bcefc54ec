@@ -1,0 +1,9 @@
+
+public class StudentCreate implements ServiceExecute{
+	RepoCUD repo1=new RepoCUD();
+	Service service=new Service();
+	public void execute() {
+		
+	}
+
+}

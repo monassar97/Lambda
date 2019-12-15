@@ -1,0 +1,11 @@
+import java.util.HashMap;
+
+public class StudentDelete implements ServiceExecute{
+
+	RepoCUD repo1=new RepoCUD();
+	
+	public void execute(HashMap<String, String> mp) {
+		repo1.deleteStudent(mp.get("id"));
+	}
+
+}

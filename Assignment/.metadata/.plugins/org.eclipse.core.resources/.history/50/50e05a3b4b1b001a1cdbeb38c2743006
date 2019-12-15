@@ -1,0 +1,15 @@
+import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.Function;
+
+public class Optionalhelper {
+	public static <U,T> Optional<U> map(Optional<?super T> opt,Function<?super T,U> mapper){
+
+		final Optional<Person> bigPerson = members.stream()
+
+			    .filter(member -> member.getLevel() > 10)
+
+			    .findFirst();
+		return null;
+	}
+}

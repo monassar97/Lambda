@@ -1,0 +1,9 @@
+import java.util.List;
+
+public interface CacheInterface {
+	public boolean getValueFromDS(int value) ;
+	public void addValueToDS(int value);
+	public int getMinPriorety();
+	public List<DS> comparepriority();
+	public DS compareTime();
+}

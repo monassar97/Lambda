@@ -1,0 +1,4 @@
+
+public interface ServiceExecute {
+public void execute();
+}

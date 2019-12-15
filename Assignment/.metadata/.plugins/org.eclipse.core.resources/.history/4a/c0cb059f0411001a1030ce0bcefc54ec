@@ -1,0 +1,16 @@
+public class Service {
+	
+	private StudentDAOImplementation implementation;
+
+	public Service(StudentDAOImplementation implementation) {
+		super();
+		this.implementation = implementation;
+	}
+	Service work=new Service(new StudentDAOImplementation());
+
+
+	public void createStudent(Student student) {
+		
+	}
+
+}

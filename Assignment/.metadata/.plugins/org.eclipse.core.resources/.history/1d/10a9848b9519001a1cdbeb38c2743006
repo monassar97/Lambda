@@ -1,0 +1,47 @@
+import java.util.LinkedList;
+import java.util.List;
+
+public class MainApplication {
+	static Student[] students=new Student[] {
+			Student.student("Ahmad",20,Gender.MALE,true,Course.CHEMISTRY,Course.MATH),
+			Student.student("Mohammad",25,Gender.MALE,true,Course.JAVA,Course.MATH),
+			Student.student("Esa",27,Gender.MALE,false,Course.ENGLISH,Course.JAVA),
+			Student.student("Esra",19,Gender.FEMALE,true,Course.PHYSICS,Course.MATH),
+			Student.student("Dana",40,Gender.FEMALE,true,Course.ENGLISH,Course.MATH),
+			Student.student("Ruba",22,Gender.FEMALE,true,Course.CHEMISTRY,Course.PHYSICS)
+	}; 
+	public static void main(String[] args) {
+		
+	}
+	public List<Student> active(){
+		List<Student> activeStudents=new LinkedList<Student>();
+		for(int i=0;i<students.length;i++) {
+			if(students[i].isActive()) {
+				activeStudents.add(students[i]);
+			}
+		}
+		return activeStudents;
+	}
+	public List<Student> activeAndMale(){
+		List<Student> activeStudents=new LinkedList<Student>();
+		for(int i=0;i<students.length;i++) {
+			if(students[i].isActive()&&students[i].getGender()==Gender.MALE) {
+				activeStudents.add(students[i]);
+			}
+		}
+		return activeStudents;
+	}
+	public List<Student> activeAndHavaMathCourseOrPysicsCourse(){
+		List<Student> activeStudents=new LinkedList<Student>();
+		for(int i=0;i<students.length;i++) {
+			if(students[i].isActive()) {
+				List<Course> courses=students[i].getCourses();
+				for(int j=0;j<courses.size();j++) {
+					if(courses.get(i)==Course.MATH||courses.get(i)==Course.PHYSICS) 
+						activeStudents.add(students[i]);
+				}
+			}
+		}
+		return activeStudents;
+	}
+}

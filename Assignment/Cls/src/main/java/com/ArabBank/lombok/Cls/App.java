@@ -1,0 +1,38 @@
+package com.ArabBank.lombok.Cls;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.Gson;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+        File file=new File("rating.json");
+        String content="";
+        try(BufferedReader reader=new BufferedReader(new FileReader(file))) {
+        	String line;
+        	while((line=reader.readLine())!=null) {
+        		content+=line;
+        	}
+        }catch (Exception e) {
+		}
+        Gson gson=new Gson();
+        List<Evaluation> list=new LinkedList();
+        Map<String, Skills> map=new HashMap();
+        for(Evaluation ev:list) {
+//        	if(map.containsKey(ev.getName()));
+        }
+        
+    }
+    public static Skills calc(Evaluation evaluation) {
+    	
+    	return null;
+    }
+}

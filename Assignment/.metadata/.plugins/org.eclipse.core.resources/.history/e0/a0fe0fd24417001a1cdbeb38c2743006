@@ -1,0 +1,10 @@
+public class Test {
+	public static void main(String[] args) {
+
+		IntGeneral test=x->y->(x+y);
+		//MyFunction<Integer, Integer, Integer> function=(x,y)->(test.add(y)+test.add(x));
+		//System.out.println(function.apply(2, 5));
+		
+
+	}
+}

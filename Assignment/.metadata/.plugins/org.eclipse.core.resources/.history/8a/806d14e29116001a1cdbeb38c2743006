@@ -1,0 +1,20 @@
+import java.util.List;import org.w3c.dom.ls.LSInput;
+
+public class MainTest {
+	public static void main(String[] args) {
+		User user=new User(new ConnectionPool(new RepoImplementation()));
+		user.setId(1);
+		user.setUsername("ahmad");
+		user.setPassword("123");
+		user.getConnection().getConnection(user.getId());
+		Student student=new Student();
+		student.setName("ahmad");
+		user.getConnection().getRepo().createStudent(student);
+		
+		List<Student> list=user.getConnection().getRepo().getAllStudents();
+		for(int i=0;i<list.size();i++) {
+			System.out.println(list.get(i).toString());
+		}
+		
+	}
+}

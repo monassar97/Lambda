@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+
+public class Service {
+	RepoCUD repo1=new RepoCUD();
+	RepoR repo2=new RepoR();
+	public void createStudent(String name) {
+		repo1.CreateStudent(name);
+	}
+	public void updateStudent(long id,String name) {
+		repo1.updateStudent(id, name);
+	}
+	public void deleteStudentById(long id) {
+		repo1.deleteStudentById(id);
+	}
+	public Student findStudentById(long id){
+		Student student;
+		student=repo2.findStudentById(id);
+		if(student==null) {
+			System.out.println("No Student with id "+id);
+			student.setId(0);
+			student.setName(" ");
+			return ;
+		}
+		return student;
+	}
+	public ArrayList<Student>findAllStudents(){
+		ArrayList<Student> students=new ArrayList<Student>();
+		students=repo2.findAllStudents();
+		return students;
+	}
+}

@@ -1,0 +1,12 @@
+import java.util.List;import org.w3c.dom.ls.LSInput;
+
+public class MainTest {
+	public static void main(String[] args) {
+		User user=new User(new ConnectionPool(new RepoImplementation()));
+		user.setId(1);
+		user.setUsername("ahmad");
+		user.setPassword("123");
+		userConnection connect=new userConnection();
+		
+	}
+}

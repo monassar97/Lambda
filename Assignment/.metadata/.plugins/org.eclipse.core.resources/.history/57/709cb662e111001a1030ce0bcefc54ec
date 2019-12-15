@@ -1,0 +1,30 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+
+public class Test {
+	public static void main(String[] args) {
+		FileReader in=null;
+		try {
+			in = new FileReader("textX");
+			BufferedReader reader=new BufferedReader(in);
+			String test="";
+			while((test=reader.readLine())!=null) {
+				
+			}
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				in.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+	}
+}

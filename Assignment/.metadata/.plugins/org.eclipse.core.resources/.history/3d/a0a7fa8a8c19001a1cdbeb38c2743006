@@ -1,0 +1,24 @@
+import javax.swing.plaf.metal.MetalIconFactory.FolderIcon16;
+
+public class Test {
+	public static void main(String[] args) {
+		
+		MyFunction<Integer, Integer> function=x->x+1;
+		MyFunction<Integer, Integer> function2=x->x*x;
+		MyFunction<Integer, Integer> a=function.compose(function2);
+		MyFunction<Integer, Integer> b=function2.compose(function);
+		System.out.println(a.apply(4));
+		System.out.println(b.apply(4));
+		MyFunction<Integer, Float> m=x->x*3F;
+		
+		MyFunction<String, Integer> function21=x->x.length();
+		MyFunction<Integer, Boolean> function22=x->(x%2==0)?true:false;
+		MyFunction<Boolean, Integer> function23=x->x?0:1;
+		
+		MyFunction<String,Boolean> res=function21.compose(function22);
+		MyFunction<String, Integer> resw=function21.compose(function22).compose(function23);
+		System.out.println(resw.apply("asdk"));
+		
+		
+	}
+}

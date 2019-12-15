@@ -1,0 +1,8 @@
+public class Test {
+	public static void main(String[] args) {
+
+		MyFunction<Integer, MyFunction<Integer, Integer>> test=x->y->(x+y);
+		System.out.println(test.apply(5).apply(6));
+
+	}
+}

@@ -1,0 +1,11 @@
+package com.ArabBank.lombok.Cls;
+public class App 
+{
+    public static void main( String[] args )
+    {
+        Laptop l=new Laptop();
+        l.setId(0);
+        System.out.println(l.getId());
+        
+    }
+}

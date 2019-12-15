@@ -1,0 +1,7 @@
+public class MainApplication {
+	static Student[] students=new Student[] {new 
+	}; 
+	public static void main(String[] args) {
+		
+	}
+}

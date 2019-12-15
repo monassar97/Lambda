@@ -1,0 +1,9 @@
+import java.util.List;import org.w3c.dom.ls.LSInput;
+
+public class MainTest {
+	public static void main(String[] args) {
+		UserRepo repo=new UserRepo();
+		repo.CreateUser(new User(0,"ahmad","123"));
+		
+	}
+}

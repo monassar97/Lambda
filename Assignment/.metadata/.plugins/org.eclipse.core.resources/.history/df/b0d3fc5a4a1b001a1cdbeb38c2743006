@@ -1,0 +1,9 @@
+import java.util.Optional;
+import java.util.function.Function;
+
+public class Optionalhelper {
+	public static <U,T> Optional<U> map(Optional<T> opt,Function<T,U> mapper){
+		opt.ifPresent(mapper.apply(t));
+		return null;
+	}
+}

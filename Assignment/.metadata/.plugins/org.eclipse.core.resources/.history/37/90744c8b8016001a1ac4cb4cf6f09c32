@@ -1,0 +1,4 @@
+
+public class StudentFindById implements ServiceInterface{
+	RepoImplementation repo=new RepoImplementation();
+}

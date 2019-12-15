@@ -1,0 +1,8 @@
+
+
+public interface StudentsDAO {
+	public void CreateStudent(Student student);
+	public void deleteStudent(Student student);
+	public void updateStudent(Student oldStudent,Student newStudent);
+	public Student findStudentById(long id);
+}

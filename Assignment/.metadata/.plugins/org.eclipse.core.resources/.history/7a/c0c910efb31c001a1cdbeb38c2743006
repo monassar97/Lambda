@@ -1,0 +1,26 @@
+import java.util.List;
+
+public class MyQueue {
+	List<Node> queue;
+	Node front;
+	Node rear;
+	
+	
+	
+	
+	public MyQueue(List<Node> queue, Node front, Node rear) {
+		super();
+		this.queue = queue;
+		this.front = front;
+		this.rear = rear;
+	}
+
+
+
+
+	public void add(int value) {
+		Node node=new Node(value);
+		queue.add(node);
+		for
+	}
+}

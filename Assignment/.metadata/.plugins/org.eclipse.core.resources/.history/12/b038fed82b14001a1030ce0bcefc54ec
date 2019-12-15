@@ -1,0 +1,21 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class testAny {
+	public static void main(String[] args) throws InterruptedException {
+		ExecutorService service=Executors.newFixedThreadPool(5);
+		Thread t1=new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		service.submit(t1);
+		service.execute(t1);
+	}
+
+	
+
+}

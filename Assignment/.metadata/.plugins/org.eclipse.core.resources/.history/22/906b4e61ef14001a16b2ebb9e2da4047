@@ -1,0 +1,18 @@
+public class APP {
+	public static void main(String[] args) throws InterruptedException {
+		Cache.add(1);
+		Cache.add(2);
+		Cache.add(3);
+		Cache.add(4);
+		//cache.addValueToDS(1);
+		//cache.addValueToDS(2);
+		//cache.addValueToDS(3);
+		//cache.addValueToDS(4);
+		Thread.sleep(300);
+		Cache.print();
+		Cache.get(4);
+		Cache.add(5);
+		Thread.sleep(300);
+		Cache.print();
+	}
+}

@@ -1,0 +1,3 @@
+public class Worker {
+	private final StudentDAOImplementation s=new StudentDAOImplementation();
+}

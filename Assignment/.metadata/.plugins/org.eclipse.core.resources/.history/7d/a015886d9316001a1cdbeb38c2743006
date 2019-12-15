@@ -1,0 +1,8 @@
+public class userConnection {
+	UserValidation valid=new UserValidation();
+	public boolean check(User user) {
+		if()
+		
+		return false;
+	}
+}

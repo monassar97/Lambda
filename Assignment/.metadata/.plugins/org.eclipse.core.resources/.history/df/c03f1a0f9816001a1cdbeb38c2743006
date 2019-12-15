@@ -1,0 +1,19 @@
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+public class UserRepo {
+	Map<Integer, User> map=new HashMap<Integer, User>();
+	public void CreateUser(User user) {
+		System.out.println("added");
+		map.put(user.getId(), user);
+	}
+	public List<User> getUsers(){
+		List<User> users=new LinkedList<User>();
+		for(int val:map.keySet()) {
+			users.add(map.get(val));
+		}
+		return users;
+	}
+}

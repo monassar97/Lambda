@@ -1,0 +1,8 @@
+public interface MyFunction <T t>{
+	public T apply(T t);
+	
+	default MyFunction<T, U> compose(MyFunction<T, U> m){
+		return x->m.apply( apply(x));
+		
+	}
+}

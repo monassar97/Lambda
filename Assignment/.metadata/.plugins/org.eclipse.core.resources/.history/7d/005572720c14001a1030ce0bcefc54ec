@@ -1,0 +1,14 @@
+package com.arabBank.Threads.Test;
+
+public class TestX extends Thread{
+	
+	
+	public static void main(String[] args) {
+		TestX t=new TestX();
+		TestX t2=new TestX();
+		t.setPriority(1);
+		t2.setPriority(10);
+		t.start();
+		t2.start();
+	}
+}

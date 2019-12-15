@@ -1,0 +1,10 @@
+import java.util.HashMap;
+
+public class StudentFindById implements ServiceInterface{
+	RepoImplementation repo=new RepoImplementation();
+
+	public void execute(HashMap<String, Object> map) {
+		Student student=new Student();
+		
+	}
+}

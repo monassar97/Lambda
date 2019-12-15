@@ -1,0 +1,5 @@
+data->one repo(data structure).
+each service implement Command interface.+Build Constructor of each service that accept repo;
+method execute that recive Object that can inform as StudentDTO(attrr:name,gpa);
+and create student instance and fill data from da79ta that exist in student Dto that recived throw object.
+return repository.create(student)

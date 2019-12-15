@@ -1,0 +1,22 @@
+
+public class Account extends Thread{
+	private int balance;
+	public synchronized  void deposit(int value) {
+		balance+=value;
+		System.out.println(balance);
+	}
+	public synchronized void draw(int value) {
+		if(balance-value<0)
+			System.out.println("Not Enough balance!");
+		else {
+			balance-=value;	
+		}
+		System.out.println(balance);
+	}
+	public static void main(String[] args) {
+		Account a=new Account();
+		a.deposit(1000);
+		a.draw(500);
+	}
+	
+}

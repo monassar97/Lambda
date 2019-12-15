@@ -1,0 +1,10 @@
+import java.util.LinkedList;
+import java.util.List;
+
+public class MyList {
+	private List<Integer> integers=new LinkedList<Integer>();
+	
+	public boolean add(int i) {
+		return integers.add(i);
+	}
+}

@@ -1,0 +1,5 @@
+package com.ArabBank.lombok.Cls;
+
+public class Laptop {
+
+}

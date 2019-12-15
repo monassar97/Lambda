@@ -1,0 +1,12 @@
+
+
+import java.util.HashMap;
+import java.util.List;
+
+public class CreateStudentService implements ServiceInterface{
+	IdGeneratorImplementation generatorImplementation=new IdGeneratorImplementation();
+	public void execute(HashMap<String, Object> map) {
+		Student student=new Student(generatorImplementation.generateId(),(String) map.get("name"), (List<Courses>)map.get("courses"));
+	}
+
+}

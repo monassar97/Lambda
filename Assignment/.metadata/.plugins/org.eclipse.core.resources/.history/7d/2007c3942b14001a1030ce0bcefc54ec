@@ -1,0 +1,26 @@
+public class testAny {
+	public static void main(String[] args) throws InterruptedException {
+		synchronized (this) {
+			
+		}
+		
+		
+		Thread t1=new Thread(() -> {
+			System.out.println("Hi 1");
+		});
+		Thread t2=new Thread(() -> {
+			System.out.println("Hi 2");
+		});
+		Thread t3=new Thread(() -> {
+			System.out.println("Hi 3");
+		});
+		t1.start();
+		t1.join();
+		t2.start();
+		t2.join();
+		t3.start();
+	}
+
+	
+
+}

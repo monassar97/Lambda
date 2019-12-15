@@ -1,0 +1,12 @@
+public class Main {
+	public static void main(String[] args) throws InterruptedException {
+		MyList test=new MyList();
+		
+		WriterThread write=new WriterThread(test);
+		ReaderThread read=new ReaderThread(test);
+		write.start();
+		write.join();
+		read.start();
+		
+	}
+}

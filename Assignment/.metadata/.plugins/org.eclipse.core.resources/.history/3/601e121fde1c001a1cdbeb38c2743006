@@ -1,0 +1,24 @@
+import java.util.PriorityQueue;
+import java.util.Queue;
+
+public class TestC {
+	static Queue<Integer> prior = new PriorityQueue<Integer>(6);
+
+	public static void getMedian(int value) {
+
+		
+	}
+
+	public static void main(String[] args) {
+		add(1);
+		add(2);
+		add(3);
+		add(4);
+		add(5);
+		add(6);
+		add(7);
+		add(2);
+		prior.
+		prior.stream().forEach(System.out::println);
+	}
+}

@@ -1,0 +1,11 @@
+
+import java.util.LinkedList;
+import java.util.List;
+
+public class Test {
+	private static List<String> list;
+
+	public static void main(String[] args) {
+		list = new LinkedList<>();
+	}
+}

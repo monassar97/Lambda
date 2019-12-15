@@ -1,0 +1,4 @@
+public interface Repo {
+	public void createStudent();
+	
+}

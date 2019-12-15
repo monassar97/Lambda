@@ -1,0 +1,41 @@
+
+public class Account extends Thread{
+	private int balance;
+	public synchronized  void deposit(int value) {
+		balance+=value;
+		System.out.println(balance);
+	}
+	public synchronized void draw(int value) {
+		if(balance-value<0)
+			System.out.println("Not Enough balance!");
+		else {
+			balance-=value;	
+		}
+		System.out.println(balance);
+	}
+	public static void main(String[] args) throws InterruptedException {
+		Account a=new Account();
+		Thread t1=new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				
+				a.deposit(1000);
+
+			}
+		});
+Thread t2=new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				a.draw(500);
+			}
+		});
+t1.start();
+
+t2.start();
+t1.join();
+		
+	}
+	
+}

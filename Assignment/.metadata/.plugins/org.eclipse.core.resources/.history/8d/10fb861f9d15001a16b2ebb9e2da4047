@@ -1,0 +1,10 @@
+public class Main {
+	public static void main(String[] args) {
+		MyList test=new MyList();
+		ReaderThread read=new ReaderThread(test);
+		WriterThread write=new WriterThread(test);
+		write.start();
+		read.start();
+		
+	}
+}

@@ -1,0 +1,13 @@
+import java.util.HashMap;
+
+public class StudentCreate implements ServiceExecute{
+	RepoCUD repo1=new RepoCUD();
+	HashMap<String,String> mp=new HashMap<String, String>();
+	public void createStudent(String name) {
+		repo1.CreateStudent(name);
+	}
+	public void execute(HashMap<String, String> mp) {
+		createStudent(mp.get("name"));
+	}
+
+}

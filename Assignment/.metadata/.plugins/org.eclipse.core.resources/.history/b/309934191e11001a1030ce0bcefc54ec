@@ -1,0 +1,13 @@
+import java.util.HashMap;
+
+public class StudentReadAll implements ServiceExecute{
+	RepoR repo2=new RepoR();
+	public void execute(HashMap<String, String> mp) {
+		printstudent(repo2.findAllStudents()));
+		
+	}
+	public static void printstudent(Student student) {
+		System.out.println("Student ID : "+student.getId()+" Student Name : "+student.getName());
+	}
+
+}

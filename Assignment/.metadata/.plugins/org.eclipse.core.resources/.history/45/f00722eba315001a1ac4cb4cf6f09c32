@@ -1,0 +1,15 @@
+package com.ArabBank.lombok.Cls;
+
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Builder
+public class Laptop {
+	private int id;
+
+	
+	
+}

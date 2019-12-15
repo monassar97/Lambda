@@ -1,0 +1,8 @@
+public class MainApplication {
+	static Student[] students=new Student[] {
+			Student.student("ahmad",20,Gender.MALE,true,Course.CHEMISTRY,Course.MATH)
+	}; 
+	public static void main(String[] args) {
+		
+	}
+}

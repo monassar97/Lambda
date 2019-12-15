@@ -1,0 +1,6 @@
+package com.ArabBank.lombok.Cls;
+
+public class Evaluation {
+	private String name;
+	private Skills skills;
+}

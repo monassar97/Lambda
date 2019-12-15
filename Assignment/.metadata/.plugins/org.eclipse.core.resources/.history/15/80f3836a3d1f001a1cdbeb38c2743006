@@ -1,0 +1,312 @@
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Optional;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+import java.util.function.Predicate;
+public class MyList <E>{
+	public static void main(String[] args) {
+		MyList<?> queue=new MyList();
+		queue.addFirst(1);
+		queue.addFirst(0);
+		queue.addLast(3);
+		queue.addFirst(6);
+		queue.addFirst(6);
+		queue.print();
+		System.out.println(queue.toString());
+		System.out.println("size = "+queue.size);
+		System.out.println(queue.toStringRevese());
+		//queue.remove(1);
+		System.out.println(queue.toString());
+		System.out.println("get "+queue.get(1));
+		//System.out.println("removed "+queue.removeByValue(6));
+		System.out.println(queue.toString());
+		System.out.println(queue.map(x->x));
+		System.out.println(queue.faltMap(x->queue));
+		Integer sum=queue.reduceleft(0, acc->data->acc+1);
+		
+		//System.out.println(sum);
+		HashMap<Integer, Integer> map=queue.reduceleft(new HashMap<Integer, Integer>(),
+				acc->data->{
+					int count=acc.getOrDefault(data, 0);
+					acc.put((Integer) data, count+1);
+					return acc;
+				});
+		
+		System.out.println(map);
+		System.out.println("Even : "+queue.filter(x->(Integer) x%2==0));
+		System.out.println("Odd : "+queue.filter(x->(Integer) x%2!=0));
+		System.out.println(queue.reverse());
+		System.out.println(queue.anymatList(6));
+		System.out.println(queue.nonmatList(6));
+	}
+	public MyList<E>filter(Predicate<E> p){
+		
+		MyList<E> filt=reduceleft(new MyList<E>(), 
+				acc->data->{
+					if(p.test(data))
+					acc.addLast(data);
+					return acc;
+				});
+		return filt;
+		
+	}
+	public MyList<E> anymatList(int i){
+		MyList<E> match=reduceleft(new MyList<E>(),
+				acc->data->{
+					if((Integer)data==i)
+						acc.addLast(data);
+					return acc;
+				});
+		return match;
+	}
+	public MyList<E> nonmatList(int i){
+		MyList<E> match=reduceleft(new MyList<E>(),
+				acc->data->{
+					if((Integer)data!=i)
+						acc.addLast(data);
+					return acc;
+				});
+		return match;
+	}
+	
+	public MyList<E> reverse(){
+		MyList<E> rev=reduceleft(new MyList<E>(), 
+				acc->data->{
+					acc.addFirst((Integer)data);
+					return acc;
+				});
+		return rev;
+	}
+	
+	Node first;
+	Node last;
+	int size;
+	public MyList() {
+		this.first = null;
+		this.last = null;
+	}
+	public <U> MyList<Integer> map(Function<?super E,?extends U>mapper){
+		MyList<Integer> list=new MyList<Integer>();
+		
+		Iterator<E> it=(Iterator<E>) iterate();
+		while(it.hasNext()) {
+			E data=(E) it.next();
+			U mappedData=mapper.apply(data);
+			list.addLast(mappedData);
+		}
+		return list;
+	}
+//	public HashMap<Integer, Integer> reduceleft(HashMap<Integer, Integer> hashMap,BiFunction<Integer, Integer, Integer> reducer){
+//		
+//		return hashMap;
+//	}
+	public  <U>  U reduceleft(U seed,Function<U, Function<E, U>>reducer){
+		U accu=seed;
+		Iterator<?extends E> elements=iterate();
+		
+		while(elements.hasNext()) {
+			E data=elements.next();
+			accu=reducer.apply(accu).apply(data);
+		}
+		return seed;
+	}
+	public <U> MyList<E> faltMap(Function<?super E,MyList<? extends U>>mapper){
+		MyList<Integer> list=new MyList<>();
+		Iterator<E> it=iterate();
+		while(it.hasNext()) {
+			E data=(E) it.next();
+			list.addLast((Integer)data-1);
+			list.addLast(data);
+			list.addLast((Integer)data+1);
+		}
+		return (MyList<E>) list;
+	}
+	
+
+	public void print () {
+		Node current=first;
+		while(current!=null) {
+			System.out.println(current.value);
+			current=current.next;
+		}
+	}
+	public Optional<Integer> remove(int index){
+		Node current=first;
+		Node before=null;
+		Node removed=null;
+		for(int i=0;i<size;i++) {
+			if(index==i) {
+			before=current;
+			current=current.next;
+			removed=current;
+			}
+		}
+		before.next=current.next;
+		current.next.prev=before;
+		
+		if(removed==null) 
+			return Optional.empty();
+		
+		return Optional.of(removed.value);
+		
+		
+		
+	}
+	public Optional<Integer> removeByValue(int value){
+		Node cuNode=first;
+		for(int i=0;i<size;i++) {
+			if(cuNode.value==value) {
+				 remove(i);
+				 return Optional.of(cuNode.value);
+			}
+		}
+		return Optional.empty();
+	}
+	public void removeLast() {
+		Node current=first;
+		Node before=null;
+		for(int i=0;i<size-1;i++) {
+			before=current;
+			current=current.next;
+		}
+		last=before;
+		last.next=null;
+	}
+	
+	public Optional<Integer> get(int index) {
+		Node current=null;
+		if(index>0&&index<size) {
+		current=first;
+		for(int i=0;i<index;i++) {
+			current=current.next;
+		}
+		if(current==null)
+			return Optional.empty();
+		size--;
+		
+		return Optional.of(current.value);
+		}
+		return Optional.empty();
+	}
+	public void addFirst(int i) {
+		Node oldFirst=first;
+		Node newFirst=new Node(null, oldFirst, i);
+		first=newFirst;
+		if(oldFirst==null) {
+			last=newFirst;
+		}else {
+			oldFirst.prev=newFirst;
+		}
+		size++;
+	}
+	public <U> void addLast(U value) {
+	Node oldLast=this.last;
+	Node newNode=new Node(oldLast, null, value);
+	last=newNode;
+	if(oldLast==null) {
+		first=newNode;
+	}else {
+		oldLast.next=newNode;
+	}
+	size++;
+	}
+	public Iterator<E> iterate(){
+		return (Iterator<E>) new LinkedIterator(first);
+	}
+	public Iterator<Integer> iterateRevese(){
+		return new ReveseIterator(last);
+	}
+	
+	@Override
+	public String toString() {
+		Iterator<Integer> iterate=(Iterator<Integer>) iterate();
+		if(iterate.hasNext()==false) {
+			return "[]";
+		}
+		
+		StringBuffer buffer=new StringBuffer();
+		buffer.append("[");
+		while(iterate.hasNext()) {
+			int next=iterate.next();
+			buffer.append(next);
+			if(iterate.hasNext()) {
+				buffer.append(" ,");
+			}
+		}
+		buffer.append("]");
+		return buffer.toString();
+	}
+	
+	
+	public String toStringRevese() {
+		Iterator<Integer> iterate=iterateRevese();
+		if(iterate.hasNext()==false) {
+			return "[]";
+		}
+		
+		StringBuffer buffer=new StringBuffer();
+		buffer.append("[");
+		while(iterate.hasNext()) {
+			int next=iterate.next();
+			buffer.append(next);
+			if(iterate.hasNext()) {
+				buffer.append(" ,");
+			}
+		}
+		buffer.append("]");
+		return buffer.toString();
+	}
+
+	public class LinkedIterator implements Iterator<Integer>{
+		private Node current;
+		private Node lastAccessed;
+		
+		
+		public LinkedIterator(Node current) {
+			super();
+			this.current = current;
+		}
+
+		@Override
+		public boolean hasNext() {
+			if(current==null) {
+				return false;
+			}
+			return true;
+		}
+
+		@Override
+		public Integer next() {
+			lastAccessed=current;
+			current=current.next;
+			return lastAccessed.value;
+		}
+		
+	}
+	public class ReveseIterator implements Iterator<Integer>{
+		private Node current;
+		private Node lastAccessed;
+		
+		
+		public ReveseIterator(Node current) {
+			super();
+			this.current = current;
+		}
+
+		@Override
+		public boolean hasNext() {
+			if(current==null) {
+				return false;
+			}
+			return true;
+		}
+		
+		@Override
+		public Integer next() {
+			lastAccessed=current;
+			current=current.prev;
+			return lastAccessed.value;
+		}
+	}
+}

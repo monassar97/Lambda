@@ -1,0 +1,29 @@
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+public class TestC {
+	static List<Double> prior = new LinkedList<Double>();
+
+	public static void getMedian() {
+		Collections.sort(prior);
+		if(prior.size()%2==0) {
+			System.out.println(prior.get(prior.size()/2)+prior.get(prior.size()));
+		}else {
+			System.out.println();
+		}
+	}
+	public static void main(String[] args) {
+		prior.add(1.0);
+		prior.add(2.0);
+		prior.add(3.0);
+		prior.add(4.0);
+		prior.add(5.0);
+		prior.add(6.0);
+		prior.add(7.0);
+		prior.add(8.0);
+
+		getMedian();
+		getMedian();
+		getMedian();
+	}
+}
